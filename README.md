@@ -56,8 +56,7 @@ Get albums and songs by identifying an artist from a provided image for the user
    * => Detail scren - table of tracks
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-
+<img width="800" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="https://user-images.githubusercontent.com/66268282/139480042-703c70ec-7b25-4c79-b7c5-2465d64872bb.png">
 
 ### [BONUS] Digital Wireframes & Mockups
 

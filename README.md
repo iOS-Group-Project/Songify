@@ -1,7 +1,4 @@
 # Songify
-Get albums and songs from a user inputted artist image
-
-# Songify
 
 ## Table of Contents
 1. [Overview](#Overview)

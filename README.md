@@ -55,7 +55,7 @@ Get albums and songs by identifying an artist from a provided image for the user
 ## Wireframes
 <img width="800" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="https://user-images.githubusercontent.com/66268282/139480042-703c70ec-7b25-4c79-b7c5-2465d64872bb.png">
 <img width="714" alt="Screen Shot 2021-10-30 at 10 02 17 PM" src="https://user-images.githubusercontent.com/66268282/139564597-7a9d4088-93fd-4079-94f9-1d4d016b7d51.png">
-<img src="https://user-images.githubusercontent.com/66268282/139564630-9e2905c6-8dfe-42e8-93a9-d86d6aae8c65.gif" width="40" height="40" />
+<img src="https://user-images.githubusercontent.com/66268282/139564630-9e2905c6-8dfe-42e8-93a9-d86d6aae8c65.gif" width="406" height="733" />
 
 ### [BONUS] Digital Wireframes & Mockups
 

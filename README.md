@@ -60,10 +60,69 @@ Get albums and songs by identifying an artist from a provided image for the user
 <img src="https://user-images.githubusercontent.com/66268282/139564630-9e2905c6-8dfe-42e8-93a9-d86d6aae8c65.gif" width="406" height="733" />
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+User
+| Property | Type  | Description |
+| -------- | -------- | --------     
+| userID   | String   | Unique ID for the user
+| username | String | User's username to register/login |
+| password | String | User's password to register/login |
+| images | Array | Artist images that the user inputs in to get albums |
+
+ArtistImage
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| image     | File     | image that user selects from list     |
+| author | Pointer to User | link to author who inputted the image | 
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Artist Image View Screen
+    - (Read/GET) Query all of the user's saved artist images
+        - `let query = PFQuery(className="ArtistImage")`
+        - `query.whereKey("author", equalTo: currentUser)`
+        - `query.findObjectsInBackground { (artists: [PFObject]?, error: Error?) in
+   if let error = error {
+      print(error.localizedDescription)
+   } else if let posts = posts {
+      print("Successfully retrieved \(artists.count) posts.")
+      // TODO: Do something with artist images...
+   }
+}`
+    - (Create/POST) Create a new artist image for user
+        - `let artist = PFObject(className="ArtistImage")`
+        - `artist["author"]=currentUser`
+        - `let imageData=inputtedImage.image!.pngData()`
+        - `let file=PFFileObject(name: "image.png", data: imageData)`
+        - `artist[image] = file`
+        - `currentUser.add(artist, forKey="images")`
+        - `currentUser.saveInBackground { (success, error) in
+            if success {
+                print("comment saved")
+            }
+            else {
+                print(error!)
+            }
+        }`
+    - (Delete) Delete existing image
+        - `let images = currentUser["images"] as! [PFObject]`
+        - `let image = images[idx]`
+        - `do {`
+            - `currentUser.remove(image, forKey: "images")`
+            - `try image.delete()`
+        - `catch {`
+            - `print("error deleting image")`
+- Album View Screen (from 3rd party API)
+    - (Read/GET) Query all of the artist's albums
+- Tracklist Detail View Screen (from 3rd party API)
+    - (Read/GET) Query all of the artist's albums tracklist
+
+- [OPTIONAL:] Existing API Endpoints
+    - Spotify Web API
+        - Base URL - https://api.spotify.com/v1
+        
+|  HTTP Verb |Endpoint | Description |
+| -------- | -------- | -------- |
+| GET     | /search   | get spotify catalog information regarding artist name, album name, and tracklist     |
+| GET     | /artists/{id}/albums   | get spotify catalog information about an artist's albums   |
+| GET     | /albums/{id}/tracks   | get spotify catalog information about an artist's albums tracks    |

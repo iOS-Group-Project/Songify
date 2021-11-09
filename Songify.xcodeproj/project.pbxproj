@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52C2739F64F005544F8 /* AppDelegate.swift */; };
+		404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52E2739F64F005544F8 /* SceneDelegate.swift */; };
+		404AB5312739F64F005544F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB5302739F64F005544F8 /* ViewController.swift */; };
+		404AB5342739F64F005544F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5322739F64F005544F8 /* Main.storyboard */; };
+		404AB5362739F650005544F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5352739F650005544F8 /* Assets.xcassets */; };
+		404AB5392739F650005544F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5372739F650005544F8 /* LaunchScreen.storyboard */; };
+		404AB5442739F651005544F8 /* SongifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB5432739F651005544F8 /* SongifyTests.swift */; };
+		404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54D2739F651005544F8 /* SongifyUITests.swift */; };
+		404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		404AB5402739F651005544F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 404AB5212739F64F005544F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 404AB5282739F64F005544F8;
+			remoteInfo = Songify;
+		};
+		404AB54A2739F651005544F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 404AB5212739F64F005544F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 404AB5282739F64F005544F8;
+			remoteInfo = Songify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		404AB5292739F64F005544F8 /* Songify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		404AB52C2739F64F005544F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SongifyApp/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		404AB52E2739F64F005544F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = SongifyApp/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
+		404AB5302739F64F005544F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SongifyApp/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		404AB5332739F64F005544F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		404AB5352739F650005544F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SongifyApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		404AB5382739F650005544F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		404AB53A2739F650005544F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SongifyApp/Info.plist; sourceTree = SOURCE_ROOT; };
+		404AB53F2739F651005544F8 /* SongifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		404AB5432739F651005544F8 /* SongifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyTests.swift; sourceTree = "<group>"; };
+		404AB5492739F651005544F8 /* SongifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
+		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		404AB5262739F64F005544F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB53C2739F651005544F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB5462739F651005544F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		404AB5202739F64F005544F8 = {
+			isa = PBXGroup;
+			children = (
+				404AB52B2739F64F005544F8 /* Songify */,
+				404AB5422739F651005544F8 /* SongifyTests */,
+				404AB54C2739F651005544F8 /* SongifyUITests */,
+				404AB52A2739F64F005544F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		404AB52A2739F64F005544F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				404AB5292739F64F005544F8 /* Songify.app */,
+				404AB53F2739F651005544F8 /* SongifyTests.xctest */,
+				404AB5492739F651005544F8 /* SongifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		404AB52B2739F64F005544F8 /* Songify */ = {
+			isa = PBXGroup;
+			children = (
+				404AB52C2739F64F005544F8 /* AppDelegate.swift */,
+				404AB52E2739F64F005544F8 /* SceneDelegate.swift */,
+				404AB5302739F64F005544F8 /* ViewController.swift */,
+				404AB5322739F64F005544F8 /* Main.storyboard */,
+				404AB5352739F650005544F8 /* Assets.xcassets */,
+				404AB5372739F650005544F8 /* LaunchScreen.storyboard */,
+				404AB53A2739F650005544F8 /* Info.plist */,
+			);
+			name = Songify;
+			sourceTree = SOURCE_ROOT;
+		};
+		404AB5422739F651005544F8 /* SongifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				404AB5432739F651005544F8 /* SongifyTests.swift */,
+			);
+			path = SongifyTests;
+			sourceTree = "<group>";
+		};
+		404AB54C2739F651005544F8 /* SongifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				404AB54D2739F651005544F8 /* SongifyUITests.swift */,
+				404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */,
+			);
+			path = SongifyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		404AB5282739F64F005544F8 /* Songify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 404AB5532739F651005544F8 /* Build configuration list for PBXNativeTarget "Songify" */;
+			buildPhases = (
+				404AB5252739F64F005544F8 /* Sources */,
+				404AB5262739F64F005544F8 /* Frameworks */,
+				404AB5272739F64F005544F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Songify;
+			productName = Songify;
+			productReference = 404AB5292739F64F005544F8 /* Songify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		404AB53E2739F651005544F8 /* SongifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 404AB5562739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyTests" */;
+			buildPhases = (
+				404AB53B2739F651005544F8 /* Sources */,
+				404AB53C2739F651005544F8 /* Frameworks */,
+				404AB53D2739F651005544F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				404AB5412739F651005544F8 /* PBXTargetDependency */,
+			);
+			name = SongifyTests;
+			productName = SongifyTests;
+			productReference = 404AB53F2739F651005544F8 /* SongifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		404AB5482739F651005544F8 /* SongifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 404AB5592739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyUITests" */;
+			buildPhases = (
+				404AB5452739F651005544F8 /* Sources */,
+				404AB5462739F651005544F8 /* Frameworks */,
+				404AB5472739F651005544F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				404AB54B2739F651005544F8 /* PBXTargetDependency */,
+			);
+			name = SongifyUITests;
+			productName = SongifyUITests;
+			productReference = 404AB5492739F651005544F8 /* SongifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		404AB5212739F64F005544F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					404AB5282739F64F005544F8 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					404AB53E2739F651005544F8 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 404AB5282739F64F005544F8;
+					};
+					404AB5482739F651005544F8 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 404AB5282739F64F005544F8;
+					};
+				};
+			};
+			buildConfigurationList = 404AB5242739F64F005544F8 /* Build configuration list for PBXProject "Songify" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 404AB5202739F64F005544F8;
+			productRefGroup = 404AB52A2739F64F005544F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				404AB5282739F64F005544F8 /* Songify */,
+				404AB53E2739F651005544F8 /* SongifyTests */,
+				404AB5482739F651005544F8 /* SongifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		404AB5272739F64F005544F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404AB5392739F650005544F8 /* LaunchScreen.storyboard in Resources */,
+				404AB5362739F650005544F8 /* Assets.xcassets in Resources */,
+				404AB5342739F64F005544F8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB53D2739F651005544F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB5472739F651005544F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		404AB5252739F64F005544F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404AB5312739F64F005544F8 /* ViewController.swift in Sources */,
+				404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */,
+				404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB53B2739F651005544F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404AB5442739F651005544F8 /* SongifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		404AB5452739F651005544F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */,
+				404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		404AB5412739F651005544F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 404AB5282739F64F005544F8 /* Songify */;
+			targetProxy = 404AB5402739F651005544F8 /* PBXContainerItemProxy */;
+		};
+		404AB54B2739F651005544F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 404AB5282739F64F005544F8 /* Songify */;
+			targetProxy = 404AB54A2739F651005544F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		404AB5322739F64F005544F8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				404AB5332739F64F005544F8 /* Base */,
+			);
+			name = Main.storyboard;
+			path = SongifyApp;
+			sourceTree = SOURCE_ROOT;
+		};
+		404AB5372739F650005544F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				404AB5382739F650005544F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = SongifyApp;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		404AB5512739F651005544F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		404AB5522739F651005544F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		404AB5542739F651005544F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SongifyApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.Songify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		404AB5552739F651005544F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SongifyApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.Songify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		404AB5572739F651005544F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.SongifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Songify.app/Songify";
+			};
+			name = Debug;
+		};
+		404AB5582739F651005544F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.SongifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Songify.app/Songify";
+			};
+			name = Release;
+		};
+		404AB55A2739F651005544F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.SongifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Songify;
+			};
+			name = Debug;
+		};
+		404AB55B2739F651005544F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2456CV5WQF;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpiedra.SongifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Songify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		404AB5242739F64F005544F8 /* Build configuration list for PBXProject "Songify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				404AB5512739F651005544F8 /* Debug */,
+				404AB5522739F651005544F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		404AB5532739F651005544F8 /* Build configuration list for PBXNativeTarget "Songify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				404AB5542739F651005544F8 /* Debug */,
+				404AB5552739F651005544F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		404AB5562739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				404AB5572739F651005544F8 /* Debug */,
+				404AB5582739F651005544F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		404AB5592739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				404AB55A2739F651005544F8 /* Debug */,
+				404AB55B2739F651005544F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 404AB5212739F64F005544F8 /* Project object */;
+}

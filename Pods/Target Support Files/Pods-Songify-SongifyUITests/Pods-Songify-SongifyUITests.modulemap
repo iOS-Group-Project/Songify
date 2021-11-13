@@ -1,0 +1,6 @@
+framework module Pods_Songify_SongifyUITests {
+  umbrella header "Pods-Songify-SongifyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

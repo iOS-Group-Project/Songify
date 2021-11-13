@@ -16,6 +16,12 @@
 		404AB5442739F651005544F8 /* SongifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB5432739F651005544F8 /* SongifyTests.swift */; };
 		404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54D2739F651005544F8 /* SongifyUITests.swift */; };
 		404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */; };
+		40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */; };
+		40E7B73027405D4C00183394 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E7B72F27405D4C00183394 /* UIImageView.swift */; };
+		40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E7B73127405DCF00183394 /* ArtistImageViewController.swift */; };
+		92A49463B7AF07A7EF7ECB66 /* Pods_Songify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */; };
+		B1CD497DD0DAE5C7EE5CE550 /* Pods_Songify_SongifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */; };
+		D68A1F5D2122FB298B37B127 /* Pods_SongifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04DB9B00082C36519C9B845 /* Pods_SongifyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6A3A9E17EF794AB465247F /* Pods-SongifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongifyTests.debug.xcconfig"; path = "Target Support Files/Pods-SongifyTests/Pods-SongifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FC8FFB1BDD57E16E0BDF1FE /* Pods-Songify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify.release.xcconfig"; path = "Target Support Files/Pods-Songify/Pods-Songify.release.xcconfig"; sourceTree = "<group>"; };
+		3959B0766611964E90DF01A3 /* Pods-Songify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify.debug.xcconfig"; path = "Target Support Files/Pods-Songify/Pods-Songify.debug.xcconfig"; sourceTree = "<group>"; };
 		404AB5292739F64F005544F8 /* Songify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB52C2739F64F005544F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SongifyApp/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		404AB52E2739F64F005544F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = SongifyApp/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -49,6 +58,15 @@
 		404AB5492739F651005544F8 /* SongifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
 		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPICaller.swift; sourceTree = "<group>"; };
+		40E7B72F27405D4C00183394 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		40E7B73127405DCF00183394 /* ArtistImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageViewController.swift; sourceTree = "<group>"; };
+		5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify_SongifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6414C544E50C9A73275627DE /* Pods-Songify-SongifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify-SongifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04DB9B00082C36519C9B845 /* Pods_SongifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF200DF04477EC00BF5C940 /* Pods-SongifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongifyTests.release.xcconfig"; path = "Target Support Files/Pods-SongifyTests/Pods-SongifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		E290BB5C663BF6504A9F4B98 /* Pods-Songify-SongifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify-SongifyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A49463B7AF07A7EF7ECB66 /* Pods_Songify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68A1F5D2122FB298B37B127 /* Pods_SongifyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +90,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CD497DD0DAE5C7EE5CE550 /* Pods_Songify_SongifyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E695C0ED8E6818F8D34BC1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */,
+				5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */,
+				A04DB9B00082C36519C9B845 /* Pods_SongifyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		404AB5202739F64F005544F8 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +114,8 @@
 				404AB5422739F651005544F8 /* SongifyTests */,
 				404AB54C2739F651005544F8 /* SongifyUITests */,
 				404AB52A2739F64F005544F8 /* Products */,
+				A77E925E07C3606CA3F16B5E /* Pods */,
+				1E695C0ED8E6818F8D34BC1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +139,9 @@
 				404AB5352739F650005544F8 /* Assets.xcassets */,
 				404AB5372739F650005544F8 /* LaunchScreen.storyboard */,
 				404AB53A2739F650005544F8 /* Info.plist */,
+				40E7B72F27405D4C00183394 /* UIImageView.swift */,
+				40E7B73127405DCF00183394 /* ArtistImageViewController.swift */,
+				40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */,
 			);
 			name = Songify;
 			sourceTree = SOURCE_ROOT;
@@ -127,6 +163,19 @@
 			path = SongifyUITests;
 			sourceTree = "<group>";
 		};
+		A77E925E07C3606CA3F16B5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3959B0766611964E90DF01A3 /* Pods-Songify.debug.xcconfig */,
+				2FC8FFB1BDD57E16E0BDF1FE /* Pods-Songify.release.xcconfig */,
+				E290BB5C663BF6504A9F4B98 /* Pods-Songify-SongifyUITests.debug.xcconfig */,
+				6414C544E50C9A73275627DE /* Pods-Songify-SongifyUITests.release.xcconfig */,
+				1C6A3A9E17EF794AB465247F /* Pods-SongifyTests.debug.xcconfig */,
+				ADF200DF04477EC00BF5C940 /* Pods-SongifyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404AB5532739F651005544F8 /* Build configuration list for PBXNativeTarget "Songify" */;
 			buildPhases = (
+				933946C9F2587368B07D5970 /* [CP] Check Pods Manifest.lock */,
 				404AB5252739F64F005544F8 /* Sources */,
 				404AB5262739F64F005544F8 /* Frameworks */,
 				404AB5272739F64F005544F8 /* Resources */,
+				1AF17C8380030215CB2B564A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +202,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404AB5562739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyTests" */;
 			buildPhases = (
+				B1F23A4D8D6E80972FF0EDC5 /* [CP] Check Pods Manifest.lock */,
 				404AB53B2739F651005544F8 /* Sources */,
 				404AB53C2739F651005544F8 /* Frameworks */,
 				404AB53D2739F651005544F8 /* Resources */,
@@ -169,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404AB5592739F651005544F8 /* Build configuration list for PBXNativeTarget "SongifyUITests" */;
 			buildPhases = (
+				BAF18CD72E0AAFEF2400B8A2 /* [CP] Check Pods Manifest.lock */,
 				404AB5452739F651005544F8 /* Sources */,
 				404AB5462739F651005544F8 /* Frameworks */,
 				404AB5472739F651005544F8 /* Resources */,
+				2913213FB882C72356963844 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,11 +307,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AF17C8380030215CB2B564A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Songify/Pods-Songify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Songify/Pods-Songify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Songify/Pods-Songify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2913213FB882C72356963844 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		933946C9F2587368B07D5970 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Songify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1F23A4D8D6E80972FF0EDC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SongifyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAF18CD72E0AAFEF2400B8A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Songify-SongifyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		404AB5252739F64F005544F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */,
+				40E7B73027405D4C00183394 /* UIImageView.swift in Sources */,
+				40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */,
 				404AB5312739F64F005544F8 /* ViewController.swift in Sources */,
 				404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */,
 				404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */,
@@ -436,6 +596,7 @@
 		};
 		404AB5542739F651005544F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3959B0766611964E90DF01A3 /* Pods-Songify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +626,7 @@
 		};
 		404AB5552739F651005544F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FC8FFB1BDD57E16E0BDF1FE /* Pods-Songify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -494,6 +656,7 @@
 		};
 		404AB5572739F651005544F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C6A3A9E17EF794AB465247F /* Pods-SongifyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +682,7 @@
 		};
 		404AB5582739F651005544F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADF200DF04477EC00BF5C940 /* Pods-SongifyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +708,7 @@
 		};
 		404AB55A2739F651005544F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E290BB5C663BF6504A9F4B98 /* Pods-Songify-SongifyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -567,6 +732,7 @@
 		};
 		404AB55B2739F651005544F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6414C544E50C9A73275627DE /* Pods-Songify-SongifyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

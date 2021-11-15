@@ -1,5 +1,9 @@
 # Songify
 
+## Demos
+### Demo 1
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/TLRgXFkfKq.gif">
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)

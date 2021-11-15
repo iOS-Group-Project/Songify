@@ -12,6 +12,7 @@
         <!--Artist Image View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ArtistImageViewController" customModule="Songify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -110,17 +111,54 @@
                         <outletCollection property="collection" destination="QUC-9Y-L3p" collectionClass="NSMutableArray" id="QUR-Vw-as6"/>
                         <outletCollection property="collection" destination="FCA-hc-ftt" collectionClass="NSMutableArray" id="ddE-o8-8gK"/>
                         <outletCollection property="collection" destination="45Q-TQ-eYT" collectionClass="NSMutableArray" id="Yf2-L1-5uP"/>
+                        <segue destination="AJZ-Xv-QTt" kind="show" identifier="toAlbumView" id="Yb3-ce-cWH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="79.6875"/>
+        </scene>
+        <!--AlbumView-->
+        <scene sceneID="hyg-58-vOy">
+            <objects>
+                <viewController storyboardIdentifier="AlbumView" title="AlbumView" modalPresentationStyle="fullScreen" id="ypd-tG-tyH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AiD-CW-Yge">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Olc-VZ-X6s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oy6-WI-IdD"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzj-PA-JWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wbm-yQ-RL2">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="AJZ-Xv-QTt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iGe-8F-E95"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UUq-DB-koJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ypd-tG-tyH" kind="relationship" relationship="rootViewController" id="Jeb-Ro-oGp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ul7-NF-Lke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="80"/>
         </scene>
     </scenes>
     <resources>
         <image name="track_glass_logo" width="44.5" height="46.5"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

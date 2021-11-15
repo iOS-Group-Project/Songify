@@ -60,19 +60,32 @@ class ArtistImageViewController: UIViewController {
         }
     }
     
-    @objc func onImageTap(_ sender: UIImageView) {
+    @objc func onImageTap(_ sender: UITapGestureRecognizer) {
         // Perform on tap functionality here
+        let artistImage = sender.view as! UIImageView
+        let artist_idx = artistImage.tag - 1
+        let artist_name = artists[artist_idx][0]
         
-        print("image has been tapped")
+        SpotifyAPICaller.client.api.search(query: artist_name, categories: [.artist])
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { results in
+                let artist = results.artists!.items.first!
+                // outputs artist object and its data properties
+                print(artist)
+            })
+            .store(in: &searchCancellables)
+        
+        performSegue(withIdentifier: "toAlbumView", sender: self)
     }
     
     /*
-    // MARK: - Navigation
+     MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+         Get the new view controller using segue.destination.
+         Pass the selected object to the new view controller.
     }
     */
 

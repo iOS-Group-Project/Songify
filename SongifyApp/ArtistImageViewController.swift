@@ -33,6 +33,8 @@ class ArtistImageViewController: UIViewController {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/1200px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg"],
     ]
     
+    var artistId: String = ""
+    
     var searchCancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
@@ -71,22 +73,20 @@ class ArtistImageViewController: UIViewController {
                 print(completion)
             }, receiveValue: { results in
                 let artist = results.artists!.items.first!
-                // outputs artist object and its data properties
-                print(artist)
+                self.artistId = artist.id!
+                print("artist search successful")
             })
             .store(in: &searchCancellables)
         
         performSegue(withIdentifier: "toAlbumView", sender: self)
     }
     
-    /*
-     MARK: - Navigation
-
-     In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         Get the new view controller using segue.destination.
-         Pass the selected object to the new view controller.
+        let destinationNavigationController = segue.destination as! UINavigationController
+        let albumGridViewController = destinationNavigationController.topViewController as! AlbumGridViewController
+        
+        albumGridViewController.artistId = artistId
     }
-    */
 
 }

@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,6 +101,7 @@
                             <constraint firstItem="2aW-qY-QlC" firstAttribute="top" secondItem="YEi-Hf-6q1" secondAttribute="bottom" constant="67" id="xhd-1o-tco"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fL5-6R-XLe"/>
                     <connections>
                         <outletCollection property="collection" destination="m7b-rT-Evb" collectionClass="NSMutableArray" id="DWR-vr-jW9"/>
                         <outletCollection property="collection" destination="teD-Wu-U3W" collectionClass="NSMutableArray" id="iay-7P-Boj"/>
@@ -110,46 +112,89 @@
                         <outletCollection property="collection" destination="QUC-9Y-L3p" collectionClass="NSMutableArray" id="QUR-Vw-as6"/>
                         <outletCollection property="collection" destination="FCA-hc-ftt" collectionClass="NSMutableArray" id="ddE-o8-8gK"/>
                         <outletCollection property="collection" destination="45Q-TQ-eYT" collectionClass="NSMutableArray" id="Yf2-L1-5uP"/>
-                        <segue destination="AJZ-Xv-QTt" kind="show" identifier="toAlbumView" id="Yb3-ce-cWH"/>
+                        <segue destination="pPQ-92-3TY" kind="presentation" identifier="toAlbumView" id="rSE-OG-WFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="79.6875"/>
-        </scene>
-        <!--AlbumView-->
-        <scene sceneID="hyg-58-vOy">
-            <objects>
-                <viewController storyboardIdentifier="AlbumView" title="AlbumView" modalPresentationStyle="fullScreen" id="ypd-tG-tyH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AiD-CW-Yge">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Olc-VZ-X6s"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="oy6-WI-IdD"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vzj-PA-JWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1751" y="80"/>
+            <point key="canvasLocation" x="-186" y="80"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Wbm-yQ-RL2">
+        <scene sceneID="oKf-ya-JHp">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="AJZ-Xv-QTt" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="iGe-8F-E95"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UUq-DB-koJ">
+                <navigationController modalPresentationStyle="fullScreen" id="pPQ-92-3TY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MT0-a5-Pk6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ypd-tG-tyH" kind="relationship" relationship="rootViewController" id="Jeb-Ro-oGp"/>
+                        <segue destination="ypd-tG-tyH" kind="relationship" relationship="rootViewController" id="6b8-MB-Ctk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ul7-NF-Lke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4M-ee-H9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="80"/>
+            <point key="canvasLocation" x="690" y="80"/>
+        </scene>
+        <!--Album Grid View Controller-->
+        <scene sceneID="hyg-58-vOy">
+            <objects>
+                <viewController storyboardIdentifier="AlbumGridView" modalPresentationStyle="fullScreen" id="ypd-tG-tyH" customClass="AlbumGridViewController" customModule="Songify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AiD-CW-Yge">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-N5-6Kn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.078431372550000003" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WVP-4h-SrK">
+                                    <size key="itemSize" width="197" height="285"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AlbumViewCell" id="XyE-FF-Qxl" customClass="AlbumViewCell" customModule="Songify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="285"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OcX-T1-Cm9">
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="285"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czB-wd-kAL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="249"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Album Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtz-qH-RiQ">
+                                                    <rect key="frame" x="0.0" y="248" width="197" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="197" height="285"/>
+                                        <connections>
+                                            <outlet property="albumName" destination="gtz-qH-RiQ" id="qNs-rc-kO4"/>
+                                            <outlet property="albumPoster" destination="czB-wd-kAL" id="FO8-g0-Y9j"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Olc-VZ-X6s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zqw-ye-pgG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="albumView" destination="9yV-N5-6Kn" id="A97-Mp-VEE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzj-PA-JWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1507" y="80"/>
         </scene>
     </scenes>
     <resources>

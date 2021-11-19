@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52C2739F64F005544F8 /* AppDelegate.swift */; };
 		404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52E2739F64F005544F8 /* SceneDelegate.swift */; };
-		404AB5312739F64F005544F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB5302739F64F005544F8 /* ViewController.swift */; };
 		404AB5342739F64F005544F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5322739F64F005544F8 /* Main.storyboard */; };
 		404AB5362739F650005544F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5352739F650005544F8 /* Assets.xcassets */; };
 		404AB5392739F650005544F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5372739F650005544F8 /* LaunchScreen.storyboard */; };
@@ -48,7 +47,6 @@
 		404AB5292739F64F005544F8 /* Songify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB52C2739F64F005544F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SongifyApp/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		404AB52E2739F64F005544F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = SongifyApp/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
-		404AB5302739F64F005544F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SongifyApp/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		404AB5332739F64F005544F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		404AB5352739F650005544F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SongifyApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		404AB5382739F650005544F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,9 +56,9 @@
 		404AB5492739F651005544F8 /* SongifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
 		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPICaller.swift; sourceTree = "<group>"; };
-		40E7B72F27405D4C00183394 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		40E7B73127405DCF00183394 /* ArtistImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageViewController.swift; sourceTree = "<group>"; };
+		40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotifyAPICaller.swift; path = SongifyApp/SpotifyAPICaller.swift; sourceTree = SOURCE_ROOT; };
+		40E7B72F27405D4C00183394 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = SongifyApp/UIImageView.swift; sourceTree = SOURCE_ROOT; };
+		40E7B73127405DCF00183394 /* ArtistImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtistImageViewController.swift; path = SongifyApp/ArtistImageViewController.swift; sourceTree = SOURCE_ROOT; };
 		5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify_SongifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6414C544E50C9A73275627DE /* Pods-Songify-SongifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify-SongifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +132,6 @@
 			children = (
 				404AB52C2739F64F005544F8 /* AppDelegate.swift */,
 				404AB52E2739F64F005544F8 /* SceneDelegate.swift */,
-				404AB5302739F64F005544F8 /* ViewController.swift */,
 				404AB5322739F64F005544F8 /* Main.storyboard */,
 				404AB5352739F650005544F8 /* Assets.xcassets */,
 				404AB5372739F650005544F8 /* LaunchScreen.storyboard */,
@@ -418,7 +415,6 @@
 				40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */,
 				40E7B73027405D4C00183394 /* UIImageView.swift in Sources */,
 				40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */,
-				404AB5312739F64F005544F8 /* ViewController.swift in Sources */,
 				404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */,
 				404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */,
 			);

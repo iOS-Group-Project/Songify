@@ -33,7 +33,7 @@ class ArtistImageViewController: UIViewController {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/1200px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg"],
     ]
     
-    var artistId: String = ""
+    var artistURI: String? = nil
     
     var searchCancellables: Set<AnyCancellable> = []
     
@@ -73,7 +73,7 @@ class ArtistImageViewController: UIViewController {
                 print(completion)
             }, receiveValue: { results in
                 let artist = results.artists!.items.first!
-                self.artistId = artist.id!
+                self.artistURI = artist.uri
                 print("artist search successful")
             })
             .store(in: &searchCancellables)
@@ -86,7 +86,7 @@ class ArtistImageViewController: UIViewController {
         let destinationNavigationController = segue.destination as! UINavigationController
         let albumGridViewController = destinationNavigationController.topViewController as! AlbumGridViewController
         
-        albumGridViewController.artistId = artistId
+        albumGridViewController.artistURI = artistURI ?? "no URI"
     }
 
 }

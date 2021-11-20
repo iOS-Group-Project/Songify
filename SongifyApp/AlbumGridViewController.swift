@@ -7,13 +7,14 @@
 
 import UIKit
 import AlamofireImage
+import SpotifyWebAPI
 
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var albumView: UICollectionView!
     
-    var artistId: String = ""
-    var albums = [[String: Any]]()
+    var artistURI = String()
+    var albums = [Album]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,9 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     // MARK: - Custom Methods
-    
+    @IBAction func backToHome(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Grid Collection Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

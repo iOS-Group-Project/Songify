@@ -186,7 +186,13 @@
                         <viewLayoutGuide key="safeArea" id="Olc-VZ-X6s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zqw-ye-pgG"/>
+                    <navigationItem key="navigationItem" id="meg-my-xZS">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="eMA-gL-3uK">
+                            <connections>
+                                <action selector="backToHome:" destination="ypd-tG-tyH" id="Hvn-hR-TtJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="albumView" destination="9yV-N5-6Kn" id="A97-Mp-VEE"/>

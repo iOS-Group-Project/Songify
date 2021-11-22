@@ -8,6 +8,8 @@
 import UIKit
 import AlamofireImage
 import SpotifyWebAPI
+import Combine
+import SpotifyExampleContent
 
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -15,6 +17,8 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     
     var artistURI = String()
     var albums = [Album]()
+    
+    var albumCancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,17 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         layout.itemSize = CGSize(width: width, height: height)
         
         // get albums from spotify api based on artist's uri
+        SpotifyAPICaller.client.api.artistAlbums(artistURI, limit: 20)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { results in
+                //let artist = results.artists!.items.first!
+               // self.artistURI = artist.uri
+
+                //print(results.items.first?.images?.first?.url)
+                self.albums = results.items
+            })
+            .store(in: &albumCancellables)
         
     }
     
@@ -44,19 +59,56 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     
     // MARK: - Grid Collection Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
-    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+//
+//        let album = albums[indexPath.item]
+//        //Set up to get the movie poster to display
+//        let baseUrl = "https://image.tmdb.org/t/p/w185"
+//        let posterPath = movie["poster_path"] as! String
+//        let posterUrl = URL(string: baseUrl + posterPath)
+//
+//        cell.posterView.af.setImage(withURL: posterUrl!)
+//
+//
+//        return cell
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         // configure cell
+        print(albums.count)
+        
+    if albums.count == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! AlbumViewCell
         
+        //print(albums)
+        
         // Dummy image data; replace this with actual album image fetched from API
-        let album_url = "https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg"
+        let album_url = "https://api.spotify.com/v1/artists/"
         let url = URL(string: album_url)
         cell.albumPoster.af.setImage(withURL: url!)
         
         return cell
+        }
+        else {
+            
+            let album = albums[indexPath.item]
+            print(album)
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! AlbumViewCell
+            
+            //print(albums)
+            
+            // Dummy image data; replace this with actual album image fetched from API
+            let album_url = album.images?[1].url
+            //let url = URL(string: album_url)
+            cell.albumPoster.af.setImage(withURL: album_url!)
+            cell.albumName.text = album.name
+            
+            return cell
+        }
     }
 
     /*

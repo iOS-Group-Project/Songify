@@ -40,9 +40,11 @@ Get albums and songs by identifying an artist from a provided image for the user
 
 **Optional Nice-to-have Stories**
 
-* Providing the user to the ability to type in an artist name to see an image of the artist as well as their catalogue available on Spotify.
-* Being able to play music from the providing artist catalogue.
-* User hears a random song by an artist post clicking on the artists image.
+- [ ] User can create their own own account and sign in
+- [ ] Providing the user to the ability to type in an artist name to see an image of the artist as well as their catalogue available on Spotify.
+- [ ] Being able to play music from the providing artist catalogue.
+- [ ] User hears a random song by an artist post clicking on the artists image.
+- [ ] User can add in artist images
 
 ### 2. Screen Archetypes
 

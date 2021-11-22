@@ -31,8 +31,12 @@ Get albums and songs by identifying an artist from a provided image for the user
 
 **Required Must-have Stories**
 
-* User can scroll through photos.
-* User can tap photos to see an artist music catalogue.
+- [x] User can scroll through photos.
+- [x] User can tap on artist photos to see their music catalogue on the next view.
+- [x] User can scroll through album views
+- [x] User can tap on album photos to see their included tracks on the next view
+- [ ] User can scroll through tracks of the selected Album
+- [ ] User can navigate all the way back to the home screen 
 
 **Optional Nice-to-have Stories**
 

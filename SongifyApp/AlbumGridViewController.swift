@@ -29,7 +29,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         // Do any additional setup after loading the view.
         
         let layout = albumView.collectionViewLayout as! UICollectionViewFlowLayout
-
+        
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
 
@@ -38,18 +38,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         layout.itemSize = CGSize(width: width, height: height)
         
         // get albums from spotify api based on artist's uri
-        SpotifyAPICaller.client.api.artistAlbums(artistURI, limit: 20)
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { results in
-                //let artist = results.artists!.items.first!
-               // self.artistURI = artist.uri
-
-                //print(results.items.first?.images?.first?.url)
-                self.albums = results.items
-            })
-            .store(in: &albumCancellables)
-        
+        loadAlbums()
     }
     
     // MARK: - Custom Methods
@@ -57,58 +46,35 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         dismiss(animated: true, completion: nil)
     }
     
+    func loadAlbums() {
+        SpotifyAPICaller.client.api.artistAlbums(artistURI, limit: 10)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { results in
+                self.albums = results.items
+                self.albumView.reloadData()
+                print("albums fetched successfully")
+            })
+            .store(in: &albumCancellables)
+    }
+    
     // MARK: - Grid Collection Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return albums.count
     }
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
-//
-//        let album = albums[indexPath.item]
-//        //Set up to get the movie poster to display
-//        let baseUrl = "https://image.tmdb.org/t/p/w185"
-//        let posterPath = movie["poster_path"] as! String
-//        let posterUrl = URL(string: baseUrl + posterPath)
-//
-//        cell.posterView.af.setImage(withURL: posterUrl!)
-//
-//
-//        return cell
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // configure cell
-        print(albums.count)
-        
-    if albums.count == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! AlbumViewCell
-        
-        //print(albums)
-        
-        // Dummy image data; replace this with actual album image fetched from API
-        let album_url = "https://api.spotify.com/v1/artists/"
-        let url = URL(string: album_url)
-        cell.albumPoster.af.setImage(withURL: url!)
-        
+
+        let album = albums[indexPath.item]
+        let album_url = album.images?[1].url
+        let album_name = album.name
+
+        cell.albumPoster.af.setImage(withURL: album_url!)
+        cell.albumName.text = album_name
+
         return cell
-        }
-        else {
-            
-            let album = albums[indexPath.item]
-            print(album)
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! AlbumViewCell
-            
-            //print(albums)
-            
-            // Dummy image data; replace this with actual album image fetched from API
-            let album_url = album.images?[1].url
-            //let url = URL(string: album_url)
-            cell.albumPoster.af.setImage(withURL: album_url!)
-            cell.albumName.text = album.name
-            
-            return cell
-        }
     }
 
     /*

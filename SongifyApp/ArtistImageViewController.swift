@@ -69,16 +69,16 @@ class ArtistImageViewController: UIViewController {
         let artist_name = artists[artist_idx][0]
         
         SpotifyAPICaller.client.api.search(query: artist_name, categories: [.artist])
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
-            }, receiveValue: { results in
+            }, receiveValue: {[weak self] (results) in
                 let artist = results.artists!.items.first!
-                self.artistURI = artist.uri
+                self?.artistURI = artist.uri!
+                self?.performSegue(withIdentifier: "toAlbumView", sender: self)
                 print("artist search successful")
             })
             .store(in: &searchCancellables)
-        
-        performSegue(withIdentifier: "toAlbumView", sender: self)
     }
     
     // MARK - Navigation

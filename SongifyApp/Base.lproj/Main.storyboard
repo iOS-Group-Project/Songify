@@ -161,7 +161,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="197" height="285"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czB-wd-kAL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czB-wd-kAL">
                                                     <rect key="frame" x="8" y="0.0" width="189" height="249"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -178,7 +178,7 @@
                                         <connections>
                                             <outlet property="albumName" destination="gtz-qH-RiQ" id="qNs-rc-kO4"/>
                                             <outlet property="albumPoster" destination="czB-wd-kAL" id="FO8-g0-Y9j"/>
-                                            <segue destination="FMy-fL-H8F" kind="presentation" id="dvV-v2-TbO"/>
+                                            <segue destination="w2H-8K-XcT" kind="presentation" id="cMy-Ua-3fb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -201,7 +201,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzj-PA-JWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505.7971014492755" y="79.6875"/>
+            <point key="canvasLocation" x="1588" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zAc-9K-Ctt">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="w2H-8K-XcT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9gC-9E-4SY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FMy-fL-H8F" kind="relationship" relationship="rootViewController" id="gHA-Vs-dNk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFF-Ur-9YZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2483" y="80"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yco-zu-n8p">
@@ -211,31 +227,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGj-yj-03u">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem id="x7n-bk-Adb">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="erz-Di-XoA"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMw-ti-0Ge">
-                                <rect key="frame" x="0.0" y="88" width="189" height="249"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMw-ti-0Ge">
+                                <rect key="frame" x="20" y="88" width="145" height="159"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="249" id="aEE-8p-9wn"/>
-                                    <constraint firstAttribute="width" constant="189" id="deg-0s-Hp9"/>
+                                    <constraint firstAttribute="width" secondItem="KMw-ti-0Ge" secondAttribute="height" multiplier="145:159" id="Nik-yT-1V7"/>
+                                    <constraint firstAttribute="width" constant="145" id="YBG-wE-902"/>
+                                    <constraint firstAttribute="height" constant="159" id="cFW-Lh-WUe"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-2I-Y1K">
-                                <rect key="frame" x="197" y="147" width="104.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kanye West" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2f-eC-MgI">
+                                <rect key="frame" x="20" y="255" width="140.5" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2f-eC-MgI">
-                                <rect key="frame" x="0.0" y="345" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graduation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-2I-Y1K">
+                                <rect key="frame" x="173" y="143" width="186" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -243,22 +251,23 @@
                         <viewLayoutGuide key="safeArea" id="uHC-YT-aVx"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="EGj-yj-03u" firstAttribute="trailing" secondItem="v2f-eC-MgI" secondAttribute="trailing" id="1yV-lS-Iax"/>
-                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="top" secondItem="EGj-yj-03u" secondAttribute="bottom" constant="59" id="Eds-Ks-kGw"/>
-                            <constraint firstItem="KMw-ti-0Ge" firstAttribute="top" secondItem="EGj-yj-03u" secondAttribute="bottom" id="INt-fg-rBH"/>
-                            <constraint firstItem="EGj-yj-03u" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" id="Nc1-vb-QUO"/>
-                            <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="KMw-ti-0Ge" secondAttribute="bottom" constant="8" id="PXw-XK-hR4"/>
-                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="trailing" constant="8" symbolic="YES" id="RUY-hR-Sko"/>
-                            <constraint firstItem="EGj-yj-03u" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="leading" id="Xdg-Aj-080"/>
-                            <constraint firstItem="KMw-ti-0Ge" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" id="cWZ-W0-75L"/>
-                            <constraint firstItem="v2f-eC-MgI" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" id="j9b-s8-vx9"/>
-                            <constraint firstItem="v2f-eC-MgI" firstAttribute="trailing" secondItem="uHC-YT-aVx" secondAttribute="trailing" id="vYm-8n-Tow"/>
+                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" constant="55" id="Ni2-2G-JGl"/>
+                            <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DHk-2I-Y1K" secondAttribute="trailing" constant="55" id="ZwM-Jn-axg"/>
+                            <constraint firstItem="v2f-eC-MgI" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" constant="20" id="bBQ-6m-Xgr"/>
+                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="trailing" constant="8" id="ccX-IO-Ef1"/>
+                            <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="KMw-ti-0Ge" secondAttribute="bottom" constant="8" id="mtH-Wz-6qM"/>
+                            <constraint firstItem="KMw-ti-0Ge" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" id="n5u-Aw-G7S"/>
+                            <constraint firstItem="KMw-ti-0Ge" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" constant="20" id="uZ6-fa-iw9"/>
+                            <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v2f-eC-MgI" secondAttribute="trailing" constant="20" id="wgP-g4-KZJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="30D-Zd-aCh">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="l1j-lY-rzH"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiA-gI-5Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330.434782608696" y="79.6875"/>
+            <point key="canvasLocation" x="3416" y="80"/>
         </scene>
     </scenes>
     <resources>

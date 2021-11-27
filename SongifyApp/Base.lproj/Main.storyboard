@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="2483" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Track List View Controller-->
         <scene sceneID="yco-zu-n8p">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="FMy-fL-H8F" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="FMy-fL-H8F" customClass="TrackListViewController" customModule="Songify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u08-pB-dq8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiA-gI-5Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3416" y="80"/>
+            <point key="canvasLocation" x="3415.9420289855075" y="79.6875"/>
         </scene>
     </scenes>
     <resources>

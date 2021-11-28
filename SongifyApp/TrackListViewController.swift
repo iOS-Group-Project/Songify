@@ -56,6 +56,10 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
             .store(in: &trackCancellables)
     }
     
+    @IBAction func backToAlbums(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count

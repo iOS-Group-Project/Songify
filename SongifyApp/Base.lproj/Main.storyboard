@@ -322,7 +322,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="30D-Zd-aCh">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="l1j-lY-rzH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="l1j-lY-rzH">
+                            <connections>
+                                <action selector="backToAlbums:" destination="FMy-fL-H8F" id="Dg2-wt-KsV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="albumImage" destination="KMw-ti-0Ge" id="Nlr-qC-JEV"/>

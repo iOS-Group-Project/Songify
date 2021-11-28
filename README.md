@@ -7,6 +7,9 @@
 ### Demo 2
 <img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/SvINCQAQ2Y.gif">
 
+### Demo 3
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/qUEAFWsMLi.gif">
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
@@ -35,8 +38,8 @@ Get albums and songs by identifying an artist from a provided image for the user
 - [x] User can tap on artist photos to see their music catalogue on the next view.
 - [x] User can scroll through album views
 - [x] User can tap on album photos to see their included tracks on the next view
-- [ ] User can scroll through tracks of the selected Album
-- [ ] User can navigate all the way back to the home screen 
+- [x] User can scroll through tracks of the selected Album
+- [x] User can navigate all the way back to the home screen 
 
 **Optional Nice-to-have Stories**
 
@@ -44,7 +47,7 @@ Get albums and songs by identifying an artist from a provided image for the user
 - [ ] Providing the user to the ability to type in an artist name to see an image of the artist as well as their catalogue available on Spotify.
 - [ ] Being able to play music from the providing artist catalogue.
 - [ ] User hears a random song by an artist post clicking on the artists image.
-- [ ] User can add in artist images
+- [ ] User can add in custom artist images
 
 ### 2. Screen Archetypes
 

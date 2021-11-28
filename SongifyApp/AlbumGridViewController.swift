@@ -29,7 +29,6 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         // Do any additional setup after loading the view.
         
         let layout = albumView.collectionViewLayout as! UICollectionViewFlowLayout
-        
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
 
@@ -77,14 +76,19 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let destinationNavigationController = segue.destination as! UINavigationController
+        let trackListView = destinationNavigationController.topViewController as! TrackListViewController
+        
+        let cell = sender as! UICollectionViewCell
+        let indexPath = albumView.indexPath(for: cell)
+        let album = albums[indexPath!.row]
+        
+        trackListView.album = album
+        
+        albumView.deselectItem(at: indexPath!, animated: true)
     }
-    */
 
 }

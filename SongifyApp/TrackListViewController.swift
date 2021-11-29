@@ -44,7 +44,7 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
     func loadTracks() {
         let album_uri = album?.uri
         
-        SpotifyAPICaller.client.api.albumTracks(album_uri!, limit: 20, offset: 0)
+        SpotifyAPICaller.client.api.albumTracks(album_uri!, limit: 50)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
@@ -54,10 +54,6 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
                 print("tracks fetched successfully")
             })
             .store(in: &trackCancellables)
-    }
-    
-    @IBAction func backToAlbums(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table View Methods

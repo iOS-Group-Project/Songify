@@ -41,9 +41,14 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     // MARK: - Custom Methods
-    @IBAction func backToHome(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func unwindToAlbums(sender: UIStoryboardSegue) {
+//    }
+//    
+//    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+//        let segue = UnwindSlideIn(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+//        
+//        segue.perform()
+//    }
     
     func loadAlbums() {
         SpotifyAPICaller.client.api.artistAlbums(artistURI, limit: 10)
@@ -79,16 +84,18 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationNavigationController = segue.destination as! UINavigationController
-        let trackListView = destinationNavigationController.topViewController as! TrackListViewController
-        
-        let cell = sender as! UICollectionViewCell
-        let indexPath = albumView.indexPath(for: cell)
-        let album = albums[indexPath!.row]
-        
-        trackListView.album = album
-        
-        albumView.deselectItem(at: indexPath!, animated: true)
+        if let trackListViewController = segue.destination as? TrackListViewController {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = albumView.indexPath(for: cell)
+            let album = albums[indexPath!.row]
+
+            trackListViewController.album = album
+
+            albumView.deselectItem(at: indexPath!, animated: true)
+        }
+        else {
+            print("dismissing view")
+        }
     }
 
 }

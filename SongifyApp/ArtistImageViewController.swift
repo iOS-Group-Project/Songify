@@ -62,6 +62,8 @@ class ArtistImageViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToArtists(_ unwindSegue: UIStoryboardSegue) {}
+    
     @objc func onImageTap(_ sender: UITapGestureRecognizer) {
         // Perform on tap functionality here
         let artistImage = sender.view as! UIImageView
@@ -83,8 +85,7 @@ class ArtistImageViewController: UIViewController {
     
     // MARK - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationNavigationController = segue.destination as! UINavigationController
-        let albumGridViewController = destinationNavigationController.topViewController as! AlbumGridViewController
+        let albumGridViewController = segue.destination as! AlbumGridViewController
         
         albumGridViewController.artistURI = artistURI ?? "no URI"
     }

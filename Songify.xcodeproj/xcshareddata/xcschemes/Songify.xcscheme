@@ -77,6 +77,11 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "clarifai_api_key"
+            value = "6e5fae14e6144185a8502f5c49e664cd"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "client_secret"
             value = "05bde97d24b54834a406a7fa9f9ceca4"
             isEnabled = "YES">

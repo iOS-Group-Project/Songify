@@ -18,8 +18,8 @@
 		2653F3620A5B753022B326A402E6112A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A12361A7F51DD6263DBF734545D7E3 /* ImageCache.swift */; };
 		30A331CD9286145E92DB11D671664C63 /* MultipartUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9933E79355A84678765A6BFBA70B3 /* MultipartUpload.swift */; };
 		33F86FAB918B148A63A1575667F9B570 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3D57353834825F7B52B816066B7789 /* CFNetwork.framework */; };
-		40ADEA122740809700591F06 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 40ADEA112740809700591F06 /* SpotifyAPI */; };
-		40ADEA142740809700591F06 /* _SpotifyAPITestUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 40ADEA132740809700591F06 /* _SpotifyAPITestUtilities */; };
+		40609983275B066A00987F93 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 40609982275B066A00987F93 /* SpotifyAPI */; };
+		40609985275B066A00987F93 /* _SpotifyAPITestUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 40609984275B066A00987F93 /* _SpotifyAPITestUtilities */; };
 		4408B481F23F971CDB5485B5177107C3 /* Pods-Songify-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F126D78143ADC2DDD48DA850CCCAD13 /* Pods-Songify-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4634BA717BFCE522E5B42304C6A78B5D /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1C03A2893D0A468D3C928CD6161E20 /* ParameterEncoding.swift */; };
 		46B40EC7B68257FE6E1F9562BA91907C /* Pods-Songify-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF0EE9E13E94198C50502E4748501A /* Pods-Songify-dummy.m */; };
@@ -216,9 +216,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40ADEA122740809700591F06 /* SpotifyAPI in Frameworks */,
+				40609983275B066A00987F93 /* SpotifyAPI in Frameworks */,
 				BEFD46D17753985195932E8CB7B3228C /* Foundation.framework in Frameworks */,
-				40ADEA142740809700591F06 /* _SpotifyAPITestUtilities in Frameworks */,
+				40609985275B066A00987F93 /* _SpotifyAPITestUtilities in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,8 +540,8 @@
 			);
 			name = "Pods-Songify";
 			packageProductDependencies = (
-				40ADEA112740809700591F06 /* SpotifyAPI */,
-				40ADEA132740809700591F06 /* _SpotifyAPITestUtilities */,
+				40609982275B066A00987F93 /* SpotifyAPI */,
+				40609984275B066A00987F93 /* _SpotifyAPITestUtilities */,
 			);
 			productName = Pods_Songify;
 			productReference = C6B7E434D60624A0F7FD801E7675A9ED /* Pods-Songify */;
@@ -622,7 +622,7 @@
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			packageReferences = (
-				40ADEA102740809700591F06 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
+				40609981275B066A00987F93 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 			);
 			productRefGroup = 8021111E28FEE6461CA238D5B8031D3A /* Products */;
 			projectDirPath = "";
@@ -1357,25 +1357,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		40ADEA102740809700591F06 /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
+		40609981275B066A00987F93 /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Peter-Schorn/SpotifyAPI";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		40ADEA112740809700591F06 /* SpotifyAPI */ = {
+		40609982275B066A00987F93 /* SpotifyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 40ADEA102740809700591F06 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
+			package = 40609981275B066A00987F93 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
 			productName = SpotifyAPI;
 		};
-		40ADEA132740809700591F06 /* _SpotifyAPITestUtilities */ = {
+		40609984275B066A00987F93 /* _SpotifyAPITestUtilities */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 40ADEA102740809700591F06 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
+			package = 40609981275B066A00987F93 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
 			productName = _SpotifyAPITestUtilities;
 		};
 /* End XCSwiftPackageProductDependency section */

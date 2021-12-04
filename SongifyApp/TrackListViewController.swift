@@ -28,13 +28,18 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
         
         let album_name = album?.name
-        let artist = album?.artists![0].name
+        let artists = album?.artists
         let album_poster_url = album?.images?[1].url
 
         albumName.text = album_name
-        artistName.text = artist
+        artistName.text = artists?[0].name
+        for i in 1..<artists!.count {
+            let artist = artists?[i]
+            artistName.text! += ", \(artist?.name ?? "")"
+        }
         albumImage.af.setImage(withURL: album_poster_url!)
         
         loadTracks()
@@ -67,11 +72,15 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
 
         let trackNumber = indexPath.row + 1
         let track_name = track.name
-        let tracK_artist = track.artists?[0].name
+        let track_artists = track.artists
 
         cell.trackNumber.text = String(trackNumber)
         cell.trackName.text = track_name
-        cell.artistName.text = tracK_artist
+        cell.artistName.text = track_artists?[0].name
+        for i in 1..<track_artists!.count {
+            let track_artist = track_artists?[i]
+            cell.artistName.text! += ", \(track_artist!.name)"
+        }
         
         return cell
     }

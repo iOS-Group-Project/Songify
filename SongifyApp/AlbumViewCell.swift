@@ -9,5 +9,4 @@ import UIKit
 
 class AlbumViewCell: UICollectionViewCell {
     @IBOutlet weak var albumPoster: UIImageView!
-    @IBOutlet weak var albumName: UILabel!
 }

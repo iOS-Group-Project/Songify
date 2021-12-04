@@ -15,6 +15,7 @@
 		404AB5442739F651005544F8 /* SongifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB5432739F651005544F8 /* SongifyTests.swift */; };
 		404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54D2739F651005544F8 /* SongifyUITests.swift */; };
 		404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */; };
+		407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C285F2759A94700F6F1D9 /* SettingsViewController.swift */; };
 		409F046127480D3100ADDD55 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F046027480D3100ADDD55 /* AlbumViewCell.swift */; };
 		409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F04622748110800ADDD55 /* AlbumGridViewController.swift */; };
 		40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */; };
@@ -60,6 +61,7 @@
 		404AB5492739F651005544F8 /* SongifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
 		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		407C285F2759A94700F6F1D9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = SongifyApp/SettingsViewController.swift; sourceTree = "<group>"; };
 		409F046027480D3100ADDD55 /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewCell.swift; path = SongifyApp/AlbumViewCell.swift; sourceTree = "<group>"; };
 		409F04622748110800ADDD55 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumGridViewController.swift; path = SongifyApp/AlbumGridViewController.swift; sourceTree = "<group>"; };
 		40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotifyAPICaller.swift; path = SongifyApp/SpotifyAPICaller.swift; sourceTree = SOURCE_ROOT; };
@@ -151,6 +153,7 @@
 				409F04622748110800ADDD55 /* AlbumGridViewController.swift */,
 				40F5001A2752AF4C00B8980F /* TrackListViewController.swift */,
 				40F5001C2752EEC200B8980F /* TrackCell.swift */,
+				407C285F2759A94700F6F1D9 /* SettingsViewController.swift */,
 			);
 			name = Songify;
 			sourceTree = SOURCE_ROOT;
@@ -203,6 +206,8 @@
 			dependencies = (
 			);
 			name = Songify;
+			packageProductDependencies = (
+			);
 			productName = Songify;
 			productReference = 404AB5292739F64F005544F8 /* Songify.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +283,8 @@
 				Base,
 			);
 			mainGroup = 404AB5202739F64F005544F8;
+			packageReferences = (
+			);
 			productRefGroup = 404AB52A2739F64F005544F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F5001B2752AF4C00B8980F /* TrackListViewController.swift in Sources */,
+				407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */,
 				409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */,
 				40F5001D2752EEC200B8980F /* TrackCell.swift in Sources */,
 				40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */,
@@ -548,6 +556,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 			};
 			name = Debug;
 		};
@@ -602,6 +611,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

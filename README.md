@@ -43,11 +43,15 @@ Get albums and songs by identifying an artist from a provided image for the user
 
 **Optional Nice-to-have Stories**
 
-- [ ] User can create their own own account and sign in
-- [ ] Providing the user to the ability to type in an artist name to see an image of the artist as well as their catalogue available on Spotify.
+- [ ] User can sign in through their spotify account
+- [ ] Providing the user to the ability to just type in the name of the artist as an alternative to get albums 
 - [ ] Being able to play music from the providing artist catalogue.
-- [ ] User hears a random song by an artist post clicking on the artists image.
-- [ ] User can add in custom artist images
+- [x] User can add in custom artist images
+- [x] Have a third party AI Model identify artists based on their image
+- [x] Add a progress HUD for network requests
+- [x] User can search through found albums
+- [x] User can infinitely scroll down through found albums
+- [x] User can modify settings to configure the type or order of albums returned 
 
 ### 2. Screen Archetypes
 

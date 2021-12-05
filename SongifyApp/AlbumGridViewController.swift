@@ -10,6 +10,7 @@ import AlamofireImage
 import SpotifyWebAPI
 import Combine
 import SpotifyExampleContent
+import MBProgressHUD
 
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
     
@@ -67,6 +68,9 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
             group = groups[selectedGroup]
         }
         
+        // Display HUD right before the request is made
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
@@ -90,6 +94,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
                 else {
                     self.albumView.reloadData()
                 }
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("albums fetched successfully")
             })
             .store(in: &albumCancellables)

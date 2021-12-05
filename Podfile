@@ -7,6 +7,7 @@ target 'Songify' do
 
   # Pods for Songify
   pod 'AlamofireImage'
+  pod 'MBProgressHUD'
 
   target 'SongifyTests' do
     inherit! :search_paths

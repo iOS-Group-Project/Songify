@@ -21,6 +21,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     var artistURI = String()
     var albums = [Album]()
     var filteredAlbums = [Album]()
+    var offset = Int()
     var favorites = [Int]()
     
     var albumCancellables: Set<AnyCancellable> = []
@@ -49,6 +50,8 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
 
     // MARK: - Custom Methods
     func loadAlbums() {
+        self.offset = 0
+        
         let groups = [
             "Albums": AlbumType.album,
             "Appears": AlbumType.appearsOn,
@@ -71,7 +74,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50)
+        SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50, offset: self.offset)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
@@ -94,6 +97,61 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
                 else {
                     self.albumView.reloadData()
                 }
+                MBProgressHUD.hide(for: self.view, animated: true)
+                print("albums fetched successfully")
+            })
+            .store(in: &albumCancellables)
+    }
+    
+    func loadMoreAlbums() {
+        self.offset = self.offset + 50
+        
+        let groups = [
+            "Albums": AlbumType.album,
+            "Appears": AlbumType.appearsOn,
+            "Singles": AlbumType.single,
+            "Comps": AlbumType.compilation
+        ] as [String : AlbumType]
+        
+        let selectedGroup = UserDefaults.standard.string(forKey: "albumGroup")!
+        
+        var wantsAll = false
+        var group: AlbumType!
+        
+        if selectedGroup == "All" {
+            wantsAll = true
+        }
+        else {
+            group = groups[selectedGroup]
+        }
+        
+        // Display HUD right before the request is made
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50, offset: self.offset)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { results in
+                let finalResult: [Album]!
+                let sortByAlphabet = UserDefaults.standard.bool(forKey: "sortByAlphabet")
+                
+                if sortByAlphabet {
+                    finalResult = results.items.sorted { $0.name < $1.name }
+                }
+                else {
+                    finalResult = results.items
+                }
+                
+                if finalResult.count != 0 {
+                    for album in finalResult {
+                        self.albums.append(album)
+                        self.filteredAlbums.append(album)
+                    }
+                    
+                    self.albumView.reloadData()
+                }
+                
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("albums fetched successfully")
             })
@@ -153,7 +211,9 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        //
+        if indexPath.row + 1 == albums.count {
+            loadMoreAlbums()
+        }
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

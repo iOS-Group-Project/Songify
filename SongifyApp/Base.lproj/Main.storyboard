@@ -163,10 +163,26 @@
             </objects>
             <point key="canvasLocation" x="-1026" y="1588"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="th7-ow-fcc">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="lgk-ax-qci" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I5S-VF-hrq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kvr-lb-Wbm" kind="relationship" relationship="rootViewController" id="zjN-gK-uFG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YoD-aa-sZo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="1588"/>
+        </scene>
         <!--New Image-->
         <scene sceneID="pyg-s3-du5">
             <objects>
-                <viewController title="New Image" id="Kvr-lb-Wbm" sceneMemberID="viewController">
+                <viewController title="New Image" id="Kvr-lb-Wbm" customClass="NewArtistViewController" customModule="Songify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jVW-bb-68P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,11 +211,17 @@
                         <viewLayoutGuide key="safeArea" id="pgx-J0-5rN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2XR-Oi-JEj"/>
+                    <navigationItem key="navigationItem" id="2XR-Oi-JEj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="q7u-Zu-OIj">
+                            <connections>
+                                <action selector="onStop:" destination="Kvr-lb-Wbm" id="K9y-CW-1Ab"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wp5-7V-fTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.6376811594203" y="1587.7232142857142"/>
+            <point key="canvasLocation" x="129" y="2322"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -292,7 +314,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Xdn-hv-PcN">
                             <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
-                                <segue destination="Kvr-lb-Wbm" kind="show" id="693-1z-dzt"/>
+                                <segue destination="lgk-ax-qci" kind="presentation" id="Bkv-aY-4ee"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

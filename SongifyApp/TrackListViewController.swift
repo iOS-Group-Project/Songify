@@ -16,6 +16,8 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var albumName: UILabel!
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var totalTracks: UILabel!
+    @IBOutlet weak var releaseDate: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,7 +36,11 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
         let album_name = album?.name
         let artists = album?.artists
         let album_poster_url = album?.images?[1].url
-
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        let rd = df.string(from: (album?.releaseDate)!)
+        releaseDate.text = rd
         albumName.text = album_name
         artistName.text = artists?[0].name
         for i in 1..<artists!.count {
@@ -59,6 +65,14 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
                 print(completion)
             }, receiveValue: { results in
                 self.tracks = results.items
+                var msg = ""
+                if self.tracks.count == 1 {
+                    msg = "\(self.tracks.count) song ·"
+                }
+                else {
+                    msg = "\(self.tracks.count) songs ·"
+                }
+                self.totalTracks.text = msg
                 self.tableView.reloadData()
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("tracks fetched successfully")

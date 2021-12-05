@@ -306,7 +306,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="hYY-PO-rot">
-                        <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="lCN-vF-aho">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="lCN-vF-aho">
                             <connections>
                                 <segue destination="LuX-Xj-nIb" kind="show" id="YxM-2a-i9M"/>
                             </connections>
@@ -441,7 +441,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graduation" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-2I-Y1K">
-                                <rect key="frame" x="173" y="88" width="221" height="159"/>
+                                <rect key="frame" x="173" y="88" width="221" height="128"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -508,22 +508,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="50 songs -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx7-fu-h5U">
+                                <rect key="frame" x="173" y="224" width="81" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2022" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHD-aE-EYB">
+                                <rect key="frame" x="259" y="224" width="155" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uHC-YT-aVx"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="trailing" constant="8" symbolic="YES" id="8hI-hm-88E"/>
+                            <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="dx7-fu-h5U" secondAttribute="bottom" constant="11" id="01d-0a-zgI"/>
+                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" id="0IY-eN-zMm"/>
+                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="trailing" constant="8" id="Ang-yu-G7z"/>
                             <constraint firstAttribute="bottom" secondItem="2cu-V4-Gzz" secondAttribute="bottom" id="CQy-76-haT"/>
+                            <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" secondItem="DHk-2I-Y1K" secondAttribute="trailing" constant="20" id="Meb-8q-JaX"/>
+                            <constraint firstItem="JHD-aE-EYB" firstAttribute="leading" secondItem="dx7-fu-h5U" secondAttribute="trailing" constant="5" id="QfI-jz-CfE"/>
                             <constraint firstItem="2cu-V4-Gzz" firstAttribute="trailing" secondItem="uHC-YT-aVx" secondAttribute="trailing" id="SmX-8r-xL0"/>
+                            <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" secondItem="JHD-aE-EYB" secondAttribute="trailing" id="Wj4-dU-yrH"/>
                             <constraint firstItem="2cu-V4-Gzz" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" id="XWw-Sl-yAC"/>
+                            <constraint firstItem="JHD-aE-EYB" firstAttribute="leading" secondItem="dx7-fu-h5U" secondAttribute="trailing" constant="5" id="ZFU-oT-pZh"/>
+                            <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="JHD-aE-EYB" secondAttribute="bottom" constant="11" id="ZeX-Jl-MKo"/>
                             <constraint firstItem="v2f-eC-MgI" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" constant="20" id="bBQ-6m-Xgr"/>
-                            <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="DHk-2I-Y1K" secondAttribute="bottom" constant="8" symbolic="YES" id="hdV-gy-HLE"/>
-                            <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" secondItem="DHk-2I-Y1K" secondAttribute="trailing" constant="20" id="jq5-eV-iXw"/>
+                            <constraint firstItem="dx7-fu-h5U" firstAttribute="top" secondItem="DHk-2I-Y1K" secondAttribute="bottom" constant="8" id="gkL-Ng-TT5"/>
                             <constraint firstItem="v2f-eC-MgI" firstAttribute="top" secondItem="KMw-ti-0Ge" secondAttribute="bottom" constant="8" id="mtH-Wz-6qM"/>
                             <constraint firstItem="KMw-ti-0Ge" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" id="n5u-Aw-G7S"/>
                             <constraint firstItem="2cu-V4-Gzz" firstAttribute="top" secondItem="v2f-eC-MgI" secondAttribute="bottom" constant="28" id="now-QB-jhz"/>
                             <constraint firstItem="KMw-ti-0Ge" firstAttribute="leading" secondItem="uHC-YT-aVx" secondAttribute="leading" constant="20" id="uZ6-fa-iw9"/>
-                            <constraint firstItem="DHk-2I-Y1K" firstAttribute="top" secondItem="uHC-YT-aVx" secondAttribute="top" id="wDV-kR-Chl"/>
+                            <constraint firstItem="dx7-fu-h5U" firstAttribute="leading" secondItem="KMw-ti-0Ge" secondAttribute="trailing" constant="8" id="w9M-uT-4mg"/>
                             <constraint firstItem="uHC-YT-aVx" firstAttribute="trailing" secondItem="v2f-eC-MgI" secondAttribute="trailing" constant="20" id="wgP-g4-KZJ"/>
                         </constraints>
                     </view>
@@ -538,17 +556,18 @@
                         <outlet property="albumImage" destination="KMw-ti-0Ge" id="Nlr-qC-JEV"/>
                         <outlet property="albumName" destination="DHk-2I-Y1K" id="Noa-Ep-6bJ"/>
                         <outlet property="artistName" destination="v2f-eC-MgI" id="C4i-B5-aAK"/>
+                        <outlet property="releaseDate" destination="JHD-aE-EYB" id="QJG-1y-2xi"/>
                         <outlet property="tableView" destination="2cu-V4-Gzz" id="Hfn-Ay-rWv"/>
+                        <outlet property="totalTracks" destination="dx7-fu-h5U" id="s5i-Af-DUP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiA-gI-5Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="SBd-fH-qna" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2096" y="2322"/>
+            <point key="canvasLocation" x="-2097.1014492753625" y="2321.6517857142858"/>
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="magnifying_glass_two" width="1365" height="1365"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -16,6 +16,8 @@
 		404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54D2739F651005544F8 /* SongifyUITests.swift */; };
 		404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */; };
 		407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C285F2759A94700F6F1D9 /* SettingsViewController.swift */; };
+		40834C9B275CFDAD0014815C /* NewArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40834C9A275CFDAD0014815C /* NewArtistViewController.swift */; };
+		409C11F2275C539B0000C584 /* ArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C11F1275C539B0000C584 /* ArtistViewCell.swift */; };
 		409F046127480D3100ADDD55 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F046027480D3100ADDD55 /* AlbumViewCell.swift */; };
 		409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F04622748110800ADDD55 /* AlbumGridViewController.swift */; };
 		40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */; };
@@ -62,6 +64,8 @@
 		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
 		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		407C285F2759A94700F6F1D9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = SongifyApp/SettingsViewController.swift; sourceTree = "<group>"; };
+		40834C9A275CFDAD0014815C /* NewArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewArtistViewController.swift; path = SongifyApp/NewArtistViewController.swift; sourceTree = "<group>"; };
+		409C11F1275C539B0000C584 /* ArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtistViewCell.swift; path = SongifyApp/ArtistViewCell.swift; sourceTree = "<group>"; };
 		409F046027480D3100ADDD55 /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewCell.swift; path = SongifyApp/AlbumViewCell.swift; sourceTree = "<group>"; };
 		409F04622748110800ADDD55 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumGridViewController.swift; path = SongifyApp/AlbumGridViewController.swift; sourceTree = "<group>"; };
 		40ADEA0E27407FC900591F06 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotifyAPICaller.swift; path = SongifyApp/SpotifyAPICaller.swift; sourceTree = SOURCE_ROOT; };
@@ -154,6 +158,8 @@
 				40F5001A2752AF4C00B8980F /* TrackListViewController.swift */,
 				40F5001C2752EEC200B8980F /* TrackCell.swift */,
 				407C285F2759A94700F6F1D9 /* SettingsViewController.swift */,
+				409C11F1275C539B0000C584 /* ArtistViewCell.swift */,
+				40834C9A275CFDAD0014815C /* NewArtistViewController.swift */,
 			);
 			name = Songify;
 			sourceTree = SOURCE_ROOT;
@@ -431,10 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40834C9B275CFDAD0014815C /* NewArtistViewController.swift in Sources */,
 				40F5001B2752AF4C00B8980F /* TrackListViewController.swift in Sources */,
 				407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */,
 				409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */,
 				40F5001D2752EEC200B8980F /* TrackCell.swift in Sources */,
+				409C11F2275C539B0000C584 /* ArtistViewCell.swift in Sources */,
 				40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */,
 				40E7B73027405D4C00183394 /* UIImageView.swift in Sources */,
 				40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */,

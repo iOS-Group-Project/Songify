@@ -163,10 +163,26 @@
             </objects>
             <point key="canvasLocation" x="-1026" y="1588"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AWr-vz-2xj">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="JOO-Ut-b4w" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tlm-Fi-UYv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kvr-lb-Wbm" kind="relationship" relationship="rootViewController" id="0J4-uA-q6S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e7R-f3-vb6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="1588"/>
+        </scene>
         <!--New Image-->
         <scene sceneID="pyg-s3-du5">
             <objects>
-                <viewController title="New Image" id="Kvr-lb-Wbm" sceneMemberID="viewController">
+                <viewController title="New Image" id="Kvr-lb-Wbm" customClass="NewArtistViewController" customModule="Songify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jVW-bb-68P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,16 +206,28 @@
                                 <buttonConfiguration key="configuration" style="tinted" title="Submit">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onSubmit:" destination="Kvr-lb-Wbm" eventType="touchUpInside" id="6Rk-iv-EDA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pgx-J0-5rN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2XR-Oi-JEj"/>
+                    <navigationItem key="navigationItem" id="2XR-Oi-JEj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="yVX-YJ-Kst">
+                            <connections>
+                                <action selector="onCancel:" destination="Kvr-lb-Wbm" id="oA4-5i-W8a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pastedUrl" destination="q3G-70-Yla" id="c8o-KR-WnW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wp5-7V-fTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.6376811594203" y="1587.7232142857142"/>
+            <point key="canvasLocation" x="119" y="2322"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -255,7 +283,7 @@
                                 <rect key="frame" x="284" y="678" width="110" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aW-qY-QlC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aW-qY-QlC">
                                 <rect key="frame" x="20" y="274" width="374" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
                                 <nil key="textColor"/>
@@ -270,6 +298,36 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1us-Gd-Gnf">
+                                <rect key="frame" x="0.0" y="351" width="414" height="545"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2fN-Ne-jZi">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ArtistViewCell" id="Koi-jA-Ctz" customClass="ArtistViewCell" customModule="Songify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7oc-F6-43w">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KQd-tA-8WG">
+                                                    <rect key="frame" x="0.0" y="8" width="128" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistImage" destination="KQd-tA-8WG" id="WrR-dF-3pz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -292,11 +350,12 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Xdn-hv-PcN">
                             <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
-                                <segue destination="Kvr-lb-Wbm" kind="show" id="693-1z-dzt"/>
+                                <segue destination="JOO-Ut-b4w" kind="presentation" id="ZqQ-XP-eKe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="artistView" destination="1us-Gd-Gnf" id="jlw-Xd-RFf"/>
                         <outletCollection property="collection" destination="m7b-rT-Evb" collectionClass="NSMutableArray" id="DWR-vr-jW9"/>
                         <outletCollection property="collection" destination="teD-Wu-U3W" collectionClass="NSMutableArray" id="iay-7P-Boj"/>
                         <outletCollection property="collection" destination="U35-0o-u5s" collectionClass="NSMutableArray" id="Rd6-IQ-y70"/>
@@ -311,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="812"/>
+            <point key="canvasLocation" x="-1026.0869565217392" y="811.60714285714278"/>
         </scene>
         <!--Albums-->
         <scene sceneID="uXv-oX-fmt">

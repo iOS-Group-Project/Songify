@@ -12,9 +12,10 @@ import SpotifyWebAPI
 import Combine
 import MBProgressHUD
 
-class ArtistImageViewController: UIViewController {
+class ArtistImageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var collection: [UIImageView]!
+    @IBOutlet weak var artistView: UICollectionView!
     
     var artists: [[String]] = [
         ["Kanye West", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kanye_West_at_the_2009_Tribeca_Film_Festival_%28cropped%29.jpg/1200px-Kanye_West_at_the_2009_Tribeca_Film_Festival_%28cropped%29.jpg"],
@@ -34,7 +35,7 @@ class ArtistImageViewController: UIViewController {
         ["Katy Perry",
             "https://i.guim.co.uk/img/media/f5c1ab9ea0a0e3cccaa708558918cdb300c126d2/0_635_4480_2687/master/4480.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=20b014e018d52163ec0156c852aa66eb"],
     ]
-    
+
     var artistURI: String? = nil
     var identifiedArtist: String? = nil
     var baseURL = "https://api.clarifai.com"
@@ -48,6 +49,11 @@ class ArtistImageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         SpotifyAPICaller.client.authorize()
+        
+        artistView.delegate = self
+        artistView.dataSource = self
+        
+        UserDefaults.standard.set([], forKey: "artistUrls")
         
         var iter = 0
         // Configuring images
@@ -66,6 +72,10 @@ class ArtistImageViewController: UIViewController {
             // increment iterator for array of image URLs
             iter = iter + 1
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        artistView.reloadData()
     }
     
     func identifyArtist(for stringUrl: String!, group: DispatchGroup) {
@@ -109,13 +119,12 @@ class ArtistImageViewController: UIViewController {
         let artist_idx = artistImage.tag - 1
         let artist_url = artists[artist_idx][1]
         
-        let group = DispatchGroup()
-        group.enter()
-        
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
         // facial recognition
+        let group = DispatchGroup()
+        group.enter()
         identifyArtist(for: artist_url, group: group)
         
         // Get artist info after identifying picture
@@ -133,6 +142,56 @@ class ArtistImageViewController: UIViewController {
                 })
                 .store(in: &self.searchCancellables)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Perform on tap functionality here
+        let artists_arr = UserDefaults.standard.stringArray(forKey: "artistUrls")
+        let idx = indexPath.item
+        let artist_url = artists_arr![idx]
+        
+        // Display HUD right before the request is made
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        // facial recognition
+        let group = DispatchGroup()
+        group.enter()
+        identifyArtist(for: artist_url, group: group)
+        
+        // Get artist info after identifying picture
+        group.notify(queue: .main) {
+            SpotifyAPICaller.client.api.search(query: self.identifiedArtist!, categories: [.artist])
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { completion in
+                    print(completion)
+                }, receiveValue: {[weak self] (results) in
+                    let artist = results.artists!.items.first!
+                    self?.artistURI = artist.uri!
+                    MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                    self?.performSegue(withIdentifier: "toAlbumView", sender: self)
+                    print("artist search successful")
+                })
+                .store(in: &self.searchCancellables)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let arr = UserDefaults.standard.stringArray(forKey: "artistUrls")
+        print(arr!.count)
+        return arr!.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistViewCell", for: indexPath) as! ArtistViewCell
+        
+        let arr = UserDefaults.standard.stringArray(forKey: "artistUrls")
+        
+        let idx = indexPath.item
+        let url = (arr?[idx])!
+        
+        cell.artistImage.af.setImage(withURL: URL(string: url)!)
+
+        return cell
     }
     
     // MARK - Navigation

@@ -9,6 +9,7 @@ import UIKit
 import SpotifyWebAPI
 import AlamofireImage
 import Combine
+import MBProgressHUD
 
 class TrackListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -49,6 +50,9 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
     func loadTracks() {
         let album_uri = album?.uri
         
+        // Display HUD right before the request is made
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         SpotifyAPICaller.client.api.albumTracks(album_uri!, limit: 50)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
@@ -56,6 +60,7 @@ class TrackListViewController: UIViewController, UITableViewDataSource, UITableV
             }, receiveValue: { results in
                 self.tracks = results.items
                 self.tableView.reloadData()
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("tracks fetched successfully")
             })
             .store(in: &trackCancellables)

@@ -10,6 +10,7 @@ import AlamofireImage
 import Alamofire
 import SpotifyWebAPI
 import Combine
+import MBProgressHUD
 
 class ArtistImageViewController: UIViewController {
     
@@ -111,6 +112,9 @@ class ArtistImageViewController: UIViewController {
         let group = DispatchGroup()
         group.enter()
         
+        // Display HUD right before the request is made
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         // facial recognition
         identifyArtist(for: artist_url, group: group)
         
@@ -123,6 +127,7 @@ class ArtistImageViewController: UIViewController {
                 }, receiveValue: {[weak self] (results) in
                     let artist = results.artists!.items.first!
                     self?.artistURI = artist.uri!
+                    MBProgressHUD.hide(for: (self?.view)!, animated: true)
                     self?.performSegue(withIdentifier: "toAlbumView", sender: self)
                     print("artist search successful")
                 })

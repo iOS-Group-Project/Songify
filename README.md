@@ -10,6 +10,16 @@
 ### Demo 3
 <img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/qUEAFWsMLi.gif">
 
+## Optionals
+## Opt. Demo 1 (adding new artist image + ML model utilization)
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/w0BNA9xh72.gif">
+
+## Opt. Demo 2 (Search through albums + context menu + infinite scroll)
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/OSUKVUEqUQ.gif">
+
+## Opt. Demo 3 (Settings)
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/HHrDeUKwb2.gif">
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)

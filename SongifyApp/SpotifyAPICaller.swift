@@ -6,47 +6,145 @@
 //
 
 import Foundation
-import SpotifyWebAPI
-import Combine
+import Alamofire
 
 class SpotifyAPICaller {
-    private static let clientId: String = {
+    static let client = SpotifyAPICaller()
+    
+    let clientId: String = {
         if let clientId = ProcessInfo.processInfo
                 .environment["client_id"] {
             return clientId
         }
         fatalError("Could not find 'CLIENT_ID' in environment variables")
     }()
-        
-    private static let clientSecret: String = {
+
+    let clientSecret: String = {
         if let clientSecret = ProcessInfo.processInfo
                 .environment["client_secret"] {
             return clientSecret
         }
         fatalError("Could not find 'CLIENT_SECRET' in environment variables")
     }()
-
     
-    static let client = SpotifyAPICaller()
-    
-    let api = SpotifyAPI(
-        authorizationManager: ClientCredentialsFlowManager(
-            clientId: clientId, clientSecret: clientSecret
-        )
-    )
-    var cancellables: Set<AnyCancellable> = []
+    var accessToken: String = ""
     
     // authorization
     func authorize() {
-        api.authorizationManager.authorize()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                    case .finished:
-                        print("Successfully Songify application")
-                    case .failure(let error):
-                        print("could not authorize application: \(error)")
+        let path = SpotifyBaseUrls.accounts.rawValue + SpotifyEndpoints.authorize.rawValue
+        
+        if let url = URL(string: path) {
+            var postRequest = URLRequest(url: url)
+            postRequest.httpMethod = "POST"
+            let bodyParams = "grant_type=client_credentials"
+            postRequest.httpBody = bodyParams.data(using: String.Encoding.ascii, allowLossyConversion: true)
+
+            let id = "\(clientId)"
+            let secret = "\(clientSecret)"
+            let combined = "\(id):\(secret)"
+            let combo = combined.toBase64()
+            postRequest.addValue("Basic \(combo)", forHTTPHeaderField: "Authorization")
+
+            let task = URLSession.shared.dataTask(with: postRequest) { (data, response, error) in
+                guard let data = data else {
+                    return
                 }
-            })
-            .store(in: &cancellables)
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.accessToken = dataDictionary["access_token"] as! String
+            }
+            task.resume()
+        }
+    }
+    
+    func search(query: String, type: [String], market: String? = "ES", limit: Int? = 20, offset: Int? = 0, includeExternal: String? = "", success: @escaping ([String:Any]) -> (), failure: @escaping (Error) -> ()) {
+        
+        let type_encoded = type.map({ (string) in
+            return String(string)
+        }).joined(separator: ",")
+        let query_encoded = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let params = "?query=\(query_encoded!)&type=\(type_encoded)&market=\(market!)&limit=\(limit!)&offset=\(offset!)&includeExternal=\(includeExternal!)"
+        let full_path = SpotifyBaseUrls.api.rawValue + SpotifyEndpoints.search.rawValue + params
+
+        if let url = URL(string: full_path) {
+            var getRequest = URLRequest(url: url)
+            getRequest.httpMethod = "GET"
+
+            let accessToken = self.accessToken
+            getRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+
+            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            let task = session.dataTask(with: getRequest) { (data, response, error) in
+                if error == nil {
+                    let dataDictionary = try! JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+
+                    success(dataDictionary)
+                }
+                else {
+                    failure(error!)
+                }
+            }
+
+            task.resume()
+        }
+    }
+    
+    func artistAlbums(artist: String, groups: [String]? = nil, country: String? = "US", limit: Int? = 20, offset: Int? = 0, success: @escaping ([String:Any]) -> (), failure: @escaping (Error) -> ()) {
+        let groups_encoded = groups?.map({ (str) in
+            return String(str)
+        }).joined(separator: ",")
+        
+        let params = "?include_groups=\(groups_encoded!)&market=\(country!)&limit=\(limit!)&offset=\(offset!)"
+        let full_path = SpotifyBaseUrls.api.rawValue + SpotifyEndpoints.artists.rawValue + "/\(artist)/albums" + params
+        
+        if let url = URL(string: full_path) {
+            var getRequest = URLRequest(url: url)
+            getRequest.httpMethod = "GET"
+
+            let accessToken = self.accessToken
+            getRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+
+            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            let task = session.dataTask(with: getRequest) { (data, response, error) in
+                if error == nil {
+                    let dataDictionary = try! JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+
+                    success(dataDictionary)
+                }
+                else {
+                    failure(error!)
+                }
+            }
+
+            task.resume()
+        }
+    }
+    
+    func albumsTracks(album: String, market: String? = "US", limit: Int? = 20, offset: Int? = 0, success: @escaping ([String:Any]) -> (), failure: @escaping (Error) -> ()) {
+        let params = "?market=\(market!)&limit=\(limit!)&offset=\(offset!)"
+        let full_path = SpotifyBaseUrls.api.rawValue + SpotifyEndpoints.albums.rawValue + "/\(album)/tracks" + params
+        
+        if let url = URL(string: full_path) {
+            var getRequest = URLRequest(url: url)
+            getRequest.httpMethod = "GET"
+
+            let accessToken = self.accessToken
+            getRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+
+            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            let task = session.dataTask(with: getRequest) { (data, response, error) in
+                if error == nil {
+                    let dataDictionary = try! JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+
+                    success(dataDictionary)
+                }
+                else {
+                    failure(error!)
+                }
+            }
+
+            task.resume()
+        }
     }
 }

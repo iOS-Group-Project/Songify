@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4027F4492771196D000667F5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027F4482771196D000667F5 /* String.swift */; };
+		4027F44B27711988000667F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027F44A27711988000667F5 /* Constants.swift */; };
 		404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52C2739F64F005544F8 /* AppDelegate.swift */; };
 		404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB52E2739F64F005544F8 /* SceneDelegate.swift */; };
 		404AB5342739F64F005544F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB5322739F64F005544F8 /* Main.storyboard */; };
@@ -23,7 +25,6 @@
 		40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E7B73127405DCF00183394 /* ArtistImageViewController.swift */; };
 		40F5001B2752AF4C00B8980F /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F5001A2752AF4C00B8980F /* TrackListViewController.swift */; };
 		40F5001D2752EEC200B8980F /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F5001C2752EEC200B8980F /* TrackCell.swift */; };
-		40FACE46275D3A9D008ADE2D /* NewArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FACE45275D3A9D008ADE2D /* NewArtistViewController.swift */; };
 		92A49463B7AF07A7EF7ECB66 /* Pods_Songify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */; };
 		B1CD497DD0DAE5C7EE5CE550 /* Pods_Songify_SongifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */; };
 		D68A1F5D2122FB298B37B127 /* Pods_SongifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04DB9B00082C36519C9B845 /* Pods_SongifyTests.framework */; };
@@ -50,6 +51,8 @@
 		1C6A3A9E17EF794AB465247F /* Pods-SongifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongifyTests.debug.xcconfig"; path = "Target Support Files/Pods-SongifyTests/Pods-SongifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2FC8FFB1BDD57E16E0BDF1FE /* Pods-Songify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify.release.xcconfig"; path = "Target Support Files/Pods-Songify/Pods-Songify.release.xcconfig"; sourceTree = "<group>"; };
 		3959B0766611964E90DF01A3 /* Pods-Songify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify.debug.xcconfig"; path = "Target Support Files/Pods-Songify/Pods-Songify.debug.xcconfig"; sourceTree = "<group>"; };
+		4027F4482771196D000667F5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = SongifyApp/String.swift; sourceTree = "<group>"; };
+		4027F44A27711988000667F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = SongifyApp/Constants.swift; sourceTree = "<group>"; };
 		404AB5292739F64F005544F8 /* Songify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB52C2739F64F005544F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SongifyApp/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		404AB52E2739F64F005544F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = SongifyApp/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -70,7 +73,6 @@
 		40E7B73127405DCF00183394 /* ArtistImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtistImageViewController.swift; path = SongifyApp/ArtistImageViewController.swift; sourceTree = SOURCE_ROOT; };
 		40F5001A2752AF4C00B8980F /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrackListViewController.swift; path = SongifyApp/TrackListViewController.swift; sourceTree = "<group>"; };
 		40F5001C2752EEC200B8980F /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrackCell.swift; path = SongifyApp/TrackCell.swift; sourceTree = "<group>"; };
-		40FACE45275D3A9D008ADE2D /* NewArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewArtistViewController.swift; path = SongifyApp/NewArtistViewController.swift; sourceTree = "<group>"; };
 		5BA6AB2A0ADE712B4345FE71 /* Pods_Songify_SongifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify_SongifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6414C544E50C9A73275627DE /* Pods-Songify-SongifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songify-SongifyUITests.release.xcconfig"; path = "Target Support Files/Pods-Songify-SongifyUITests/Pods-Songify-SongifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9EFA14CDF09DA669A1925182 /* Pods_Songify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +158,8 @@
 				40F5001A2752AF4C00B8980F /* TrackListViewController.swift */,
 				40F5001C2752EEC200B8980F /* TrackCell.swift */,
 				407C285F2759A94700F6F1D9 /* SettingsViewController.swift */,
-				40FACE45275D3A9D008ADE2D /* NewArtistViewController.swift */,
+				4027F4482771196D000667F5 /* String.swift */,
+				4027F44A27711988000667F5 /* Constants.swift */,
 			);
 			name = Songify;
 			sourceTree = SOURCE_ROOT;
@@ -435,16 +438,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F5001B2752AF4C00B8980F /* TrackListViewController.swift in Sources */,
+				4027F4492771196D000667F5 /* String.swift in Sources */,
 				407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */,
 				409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */,
 				40F5001D2752EEC200B8980F /* TrackCell.swift in Sources */,
 				40E7B73227405DCF00183394 /* ArtistImageViewController.swift in Sources */,
 				40E7B73027405D4C00183394 /* UIImageView.swift in Sources */,
-				40FACE46275D3A9D008ADE2D /* NewArtistViewController.swift in Sources */,
 				40ADEA0F27407FC900591F06 /* SpotifyAPICaller.swift in Sources */,
 				409F046127480D3100ADDD55 /* AlbumViewCell.swift in Sources */,
 				404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */,
 				404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */,
+				4027F44B27711988000667F5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -609,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -636,7 +640,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,7 +670,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

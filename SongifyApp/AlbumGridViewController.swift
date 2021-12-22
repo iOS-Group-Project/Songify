@@ -7,9 +7,6 @@
 
 import UIKit
 import AlamofireImage
-import SpotifyWebAPI
-import Combine
-import SpotifyExampleContent
 import MBProgressHUD
 
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
@@ -18,13 +15,11 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet var emptyAlbums: UIView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    var artistURI = String()
-    var albums = [Album]()
-    var filteredAlbums = [Album]()
+    var artistID = String()
+    var albums = [[String:Any]]()
+    var filteredAlbums = [[String:Any]]()
     var offset = Int()
     var favorites = [Int]()
-    
-    var albumCancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,110 +47,126 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     func loadAlbums() {
         self.offset = 0
         
+        let albums = AlbumGroups.album.rawValue
+        let appearsOn = AlbumGroups.appearsOn.rawValue
+        let singles = AlbumGroups.single.rawValue
+        let compilation = AlbumGroups.compilation.rawValue
+        
         let groups = [
-            "Albums": AlbumType.album,
-            "Appears": AlbumType.appearsOn,
-            "Singles": AlbumType.single,
-            "Comps": AlbumType.compilation
-        ] as [String : AlbumType]
+            "Albums": albums,
+            "Appears": appearsOn,
+            "Singles": singles,
+            "Comps": compilation
+        ] as [String : Any]
         
         let selectedGroup = UserDefaults.standard.string(forKey: "albumGroup")!
         
         var wantsAll = false
-        var group: AlbumType!
+        var group: String!
         
         if selectedGroup == "All" {
             wantsAll = true
         }
         else {
-            group = groups[selectedGroup]
+            group = groups[selectedGroup] as? String
         }
         
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50, offset: self.offset)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { results in
-                let finalResult: [Album]!
-                let sortByAlphabet = UserDefaults.standard.bool(forKey: "sortByAlphabet")
-                
-                if sortByAlphabet {
-                    finalResult = results.items.sorted { $0.name < $1.name }
-                }
-                else {
-                    finalResult = results.items
-                }
-
-                self.albums = finalResult
-                self.filteredAlbums = finalResult
-                if self.albums.count == 0 {
-                    self.albumView.backgroundView = self.emptyAlbums
-                }
-                else {
-                    self.albumView.reloadData()
-                }
-                MBProgressHUD.hide(for: self.view, animated: true)
-                print("albums fetched successfully")
-            })
-            .store(in: &albumCancellables)
+        SpotifyAPICaller.client.artistAlbums(artist: self.artistID, groups: wantsAll == false ? [group] : [albums, singles, appearsOn, compilation], limit: 50, offset: self.offset) { (res) in
+            let finalResult: [[String:Any]]
+            let sortByAlphabet = UserDefaults.standard.bool(forKey: "sortByAlphabet")
+            
+            if sortByAlphabet {
+                finalResult = (res["items"] as! [[String:Any]]).sorted(by: { (first, second) in
+                    let curr_name = first["name"] as! String
+                    let next_name = second["name"] as! String
+                    return curr_name < next_name
+                })
+            }
+            else {
+                finalResult = res["items"] as! [[String:Any]]
+            }
+            
+            self.albums = finalResult
+            self.filteredAlbums = finalResult
+            
+            if self.albums.count == 0 {
+                self.albumView.backgroundView = self.emptyAlbums
+            }
+            else {
+                self.albumView.reloadData()
+            }
+            
+            print("albums fetched successfully")
+            MBProgressHUD.hide(for: self.view, animated: true)
+        } failure: { (error) in
+            print(error)
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
     }
     
     func loadMoreAlbums() {
         self.offset = self.offset + 50
         
+        let albums = AlbumGroups.album.rawValue
+        let appearsOn = AlbumGroups.appearsOn.rawValue
+        let singles = AlbumGroups.single.rawValue
+        let compilation = AlbumGroups.compilation.rawValue
+        
         let groups = [
-            "Albums": AlbumType.album,
-            "Appears": AlbumType.appearsOn,
-            "Singles": AlbumType.single,
-            "Comps": AlbumType.compilation
-        ] as [String : AlbumType]
+            "Albums": albums,
+            "Appears": appearsOn,
+            "Singles": singles,
+            "Comps": compilation
+        ] as [String : Any]
         
         let selectedGroup = UserDefaults.standard.string(forKey: "albumGroup")!
         
         var wantsAll = false
-        var group: AlbumType!
+        var group: String!
         
         if selectedGroup == "All" {
             wantsAll = true
         }
         else {
-            group = groups[selectedGroup]
+            group = groups[selectedGroup] as? String
         }
         
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        SpotifyAPICaller.client.api.artistAlbums(artistURI, groups: wantsAll == false ? [group] : [.album, .appearsOn, .single, .compilation], limit: 50, offset: self.offset)
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { results in
-                let finalResult: [Album]!
-                let sortByAlphabet = UserDefaults.standard.bool(forKey: "sortByAlphabet")
-                
-                if sortByAlphabet {
-                    finalResult = results.items.sorted { $0.name < $1.name }
-                }
-                else {
-                    finalResult = results.items
-                }
-                
-                if finalResult.count != 0 {
-                    for album in finalResult {
-                        self.albums.append(album)
-                        self.filteredAlbums.append(album)
-                    }
-                    
-                    self.albumView.reloadData()
+        SpotifyAPICaller.client.artistAlbums(artist: self.artistID, groups: wantsAll == false ? [group] : [albums, singles, appearsOn, compilation], limit: 50, offset: self.offset) { (res) in
+            let finalResult: [[String:Any]]
+            let sortByAlphabet = UserDefaults.standard.bool(forKey: "sortByAlphabet")
+            
+            if sortByAlphabet {
+                finalResult = (res["items"] as! [[String:Any]]).sorted(by: { (first, second) in
+                    let curr_name = first["name"] as! String
+                    let next_name = second["name"] as! String
+                    return curr_name < next_name
+                })
+            }
+            else {
+                finalResult = res["items"] as! [[String:Any]]
+            }
+            
+            if finalResult.count != 0 {
+                for album in finalResult {
+                    self.albums.append(album)
+                    self.filteredAlbums.append(album)
                 }
                 
-                MBProgressHUD.hide(for: self.view, animated: true)
-                print("albums fetched successfully")
-            })
-            .store(in: &albumCancellables)
+                self.albumView.reloadData()
+            }
+            
+            print("albums fetched successfully")
+            MBProgressHUD.hide(for: self.view, animated: true)
+        } failure: { (error) in
+            print(error)
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
     }
     
     func initSearchController() {
@@ -184,21 +195,22 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func filterForSearchTextAndScopeButton(analyze searchText: String!) {
-        filteredAlbums = albums.filter({ album in
+        filteredAlbums = albums.filter({ (album) in
             if searchText != "" {
-                let searchTextMatch = album.name.lowercased().contains(searchText.lowercased())
+                let album_name = album["name"] as! String
+                let searchTextMatch = album_name.lowercased().contains(searchText.lowercased())
                 return searchTextMatch
             }
             return true
         })
-        
+
         if filteredAlbums.count == 0 {
             albumView.backgroundView = emptyAlbums
         }
         else {
             albumView.backgroundView = nil
         }
-        
+
         albumView.reloadData()
     }
     
@@ -220,7 +232,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! AlbumViewCell
 
-        let album: Album!
+        let album: [String:Any]!
         
         if searchController.isActive {
             album = filteredAlbums[indexPath.item]
@@ -229,7 +241,9 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
             album = albums[indexPath.item]
         }
         
-        let album_url = album.images?[1].url
+        let album_images = album["images"] as! [[String:Any]]
+        let album_url_path = album_images[1]["url"] as! String
+        let album_url = URL(string: album_url_path)
 
         cell.albumPoster.af.setImage(withURL: album_url!)
 
@@ -263,15 +277,17 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
             let copy = UIAction(title: "Copy", image: UIImage(systemName: "paperclip"), identifier: nil, discoverabilityTitle: nil, state: .off) {[weak self] _ in
                 // copy album name to clipboard
                 let pasteBoard = UIPasteboard.general
-                let album: Album!
-                
+                let album: [String:Any]!
+
                 if self?.searchController.isActive == true {
                     album = self?.filteredAlbums[indexPath.row]
                 }
                 else {
                     album = self?.albums[indexPath.row]
                 }
-                pasteBoard.string = album?.externalURLs!["spotify"]?.absoluteString
+                let externalURL = album["external_urls"] as! [String:Any]
+                let spotify_url = externalURL["spotify"] as! String
+                pasteBoard.string = spotify_url
             }
             
             return UIMenu(
@@ -290,12 +306,12 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let trackListViewController = segue.destination as! TrackListViewController
-        
+
         let cell = sender as! UICollectionViewCell
         let indexPath = albumView.indexPath(for: cell)
-        
-        let album: Album!
-        
+
+        let album: [String:Any]!
+
         if searchController.isActive {
             album = filteredAlbums[indexPath!.row]
         }

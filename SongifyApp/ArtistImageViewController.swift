@@ -21,6 +21,37 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
     var identifiedArtist: String? = nil
     var searchedUrl: String? = nil
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        
+        SpotifyAPICaller.client.authorize()
+        
+        urlTextView.delegate = self
+        
+        if let url = UserDefaults.standard.string(forKey: "searchedUrl") {
+            urlTextView.text = url
+            
+            artistImage.af.setImage(withURL: URL(string: url)!)
+
+            self.artistImage.roundedImage()
+            self.submitButton.layer.cornerRadius = 5
+            self.searchedUrl = url
+        }
+        else {
+            self.artistImage.isHidden = true
+            self.submitButton.isHidden = true
+        }
+        
+        urlTextView.clipsToBounds = true
+        if #available(iOS 13.0, *) {
+            urlTextView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+            urlTextView.layer.borderWidth = 1
+            urlTextView.layer.cornerRadius = 8
+        }
+    }
+    
     func validateUrl(url: String) -> Bool {
         let regex = "http[s]?://(([^/:.[:space:]]+(.[^/:.[:space:]]+)*)|([0-9](.[0-9]{3})))(:[0-9]+)?((/[^?#[:space:]]+)([^#[:space:]]+)?(#.+)?)?"
         let test = NSPredicate(format:"SELF MATCHES %@", regex)
@@ -53,6 +84,8 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
                         self.submitButton.isHidden = false
                         self.submitButton.layer.cornerRadius = 5
                         self.searchedUrl = url!
+                        
+                        UserDefaults.standard.set(url!, forKey: "searchedUrl")
                     }
                     else {
                         let alertController = UIAlertController.init(title: "No Image Found", message: "Couldn't process image from URL", preferredStyle: .alert)
@@ -84,24 +117,6 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        SpotifyAPICaller.client.authorize()
-        
-        urlTextView.delegate = self
-        artistImage.isHidden = true
-        submitButton.isHidden = true
-        
-        urlTextView.clipsToBounds = true
-        if #available(iOS 13.0, *) {
-            urlTextView.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-            urlTextView.layer.borderWidth = 1
-            urlTextView.layer.cornerRadius = 8
-        }
-    }
-    
     @IBAction func onSubmit(_ sender: Any) {
         // identify artist from image ...
         let group = DispatchGroup()
@@ -109,7 +124,7 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
 
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
-
+        
         // facial recognition
         identifyArtistByUrl(for: self.searchedUrl, group: group)
 
@@ -155,7 +170,7 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
         let url = URL(string: "\(clarifaiBaseURL)/v2/models/\(modelID)/versions/\(model_version)/outputs")
         var request = URLRequest(url: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Key \(ProcessInfo.processInfo.environment["clarifai_api_key"]!)", forHTTPHeaderField: "Authorization")
+        request.setValue("Key \(ClarifaiKeys.clarifai_api_key)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         

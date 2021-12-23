@@ -2,30 +2,13 @@
 //  SpotifyAPICaller.swift
 //  Songify
 //
-//  Created by Matthew Piedra on 11/13/21.
+//  Created by Matthew Piedra on 12/22/21.
 //
 
 import Foundation
-import Alamofire
 
 class SpotifyAPICaller {
     static let client = SpotifyAPICaller()
-    
-    let clientId: String = {
-        if let clientId = ProcessInfo.processInfo
-                .environment["client_id"] {
-            return clientId
-        }
-        fatalError("Could not find 'CLIENT_ID' in environment variables")
-    }()
-
-    let clientSecret: String = {
-        if let clientSecret = ProcessInfo.processInfo
-                .environment["client_secret"] {
-            return clientSecret
-        }
-        fatalError("Could not find 'CLIENT_SECRET' in environment variables")
-    }()
     
     var accessToken: String = ""
     
@@ -38,13 +21,13 @@ class SpotifyAPICaller {
             postRequest.httpMethod = "POST"
             let bodyParams = "grant_type=client_credentials"
             postRequest.httpBody = bodyParams.data(using: String.Encoding.ascii, allowLossyConversion: true)
-
-            let id = "\(clientId)"
-            let secret = "\(clientSecret)"
+            
+            let id = "\(SpotifyKeys.client_id)"
+            let secret = "\(SpotifyKeys.client_secret)"
             let combined = "\(id):\(secret)"
             let combo = combined.toBase64()
             postRequest.addValue("Basic \(combo)", forHTTPHeaderField: "Authorization")
-
+            
             let task = URLSession.shared.dataTask(with: postRequest) { (data, response, error) in
                 guard let data = data else {
                     return
@@ -52,6 +35,8 @@ class SpotifyAPICaller {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 self.accessToken = dataDictionary["access_token"] as! String
+                
+                print(dataDictionary)
             }
             task.resume()
         }

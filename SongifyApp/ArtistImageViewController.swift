@@ -135,8 +135,6 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
         // identify artist from image ...
         let group = DispatchGroup()
         group.enter()
-        
-        print(1)
 
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)

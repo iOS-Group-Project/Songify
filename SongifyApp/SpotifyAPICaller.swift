@@ -35,10 +35,12 @@ class SpotifyAPICaller {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 self.accessToken = dataDictionary["access_token"] as! String
-                
-                print(dataDictionary)
             }
             task.resume()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3600.0) {
+            self.authorize()
         }
     }
     

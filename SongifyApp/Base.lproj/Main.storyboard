@@ -201,7 +201,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-Tl-742">
-                                <rect key="frame" x="161.5" y="630" width="91.5" height="38"/>
+                                <rect key="frame" x="87" y="624" width="91.5" height="38"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,24 +214,40 @@
                                     <action selector="onSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wen-T5-2DY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpV-aD-luK">
+                                <rect key="frame" x="227" y="624" width="103" height="38"/>
+                                <color key="backgroundColor" red="0.85807291666666663" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Remove">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onRemove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KO6-wi-Y2o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.72549019607843135" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JGw-oZ-qaO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="4nv-Ar-ym0"/>
                             <constraint firstItem="msB-xc-8pd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="BuL-Kx-SaS"/>
-                            <constraint firstItem="BKd-Tl-742" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gqw-a9-xGN"/>
                             <constraint firstItem="JGw-oZ-qaO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MO6-b3-b4i"/>
-                            <constraint firstItem="BKd-Tl-742" firstAttribute="top" secondItem="JGw-oZ-qaO" secondAttribute="bottom" constant="42" id="O5r-Gc-uP0"/>
                             <constraint firstItem="YEi-Hf-6q1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="QoN-jY-MTo"/>
-                            <constraint firstItem="BKd-Tl-742" firstAttribute="top" secondItem="JGw-oZ-qaO" secondAttribute="bottom" constant="42" id="SPs-Uv-rlb"/>
                             <constraint firstItem="pwL-Xf-oo1" firstAttribute="leading" secondItem="YEi-Hf-6q1" secondAttribute="trailing" constant="0.5" id="V4a-eI-Qj2"/>
                             <constraint firstItem="JGw-oZ-qaO" firstAttribute="top" secondItem="msB-xc-8pd" secondAttribute="bottom" constant="41" id="Vjh-7p-NqC"/>
+                            <constraint firstItem="vpV-aD-luK" firstAttribute="leading" secondItem="BKd-Tl-742" secondAttribute="trailing" constant="48.5" id="e3c-H6-DFI"/>
                             <constraint firstItem="YEi-Hf-6q1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="emQ-XL-1Cn"/>
                             <constraint firstItem="msB-xc-8pd" firstAttribute="top" secondItem="YEi-Hf-6q1" secondAttribute="bottom" constant="52" id="eu5-Xf-wr6"/>
+                            <constraint firstItem="BKd-Tl-742" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="hnJ-jj-HMq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vpV-aD-luK" secondAttribute="trailing" constant="84" id="i7l-gd-z2A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="msB-xc-8pd" secondAttribute="trailing" constant="37" id="jIk-vh-Xgh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JGw-oZ-qaO" secondAttribute="trailing" constant="87" id="jWb-QW-Skq"/>
                             <constraint firstItem="msB-xc-8pd" firstAttribute="top" secondItem="pwL-Xf-oo1" secondAttribute="bottom" constant="52" id="rXm-Sb-qz2"/>
+                            <constraint firstItem="vpV-aD-luK" firstAttribute="top" secondItem="JGw-oZ-qaO" secondAttribute="bottom" constant="36" id="vMo-yw-195"/>
+                            <constraint firstItem="BKd-Tl-742" firstAttribute="top" secondItem="JGw-oZ-qaO" secondAttribute="bottom" constant="36" id="zhX-5a-c7V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="hYY-PO-rot">
@@ -243,6 +259,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="artistImage" destination="JGw-oZ-qaO" id="ZFt-OJ-tWk"/>
+                        <outlet property="removeButton" destination="vpV-aD-luK" id="klc-2P-jJR"/>
                         <outlet property="submitButton" destination="BKd-Tl-742" id="0mr-kY-2JX"/>
                         <outlet property="urlTextView" destination="msB-xc-8pd" id="VQ7-f0-Si9"/>
                         <segue destination="ECt-jB-WOw" kind="show" identifier="toAlbumView" id="uES-pj-uPl"/>

@@ -16,6 +16,7 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var urlTextView: UITextField!
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
     
     var artistID: String? = nil
     var identifiedArtist: String? = nil
@@ -37,11 +38,13 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
 
             self.artistImage.roundedImage()
             self.submitButton.layer.cornerRadius = 5
+            self.removeButton.layer.cornerRadius = 5
             self.searchedUrl = url
         }
         else {
             self.artistImage.isHidden = true
             self.submitButton.isHidden = true
+            self.removeButton.isHidden = true
         }
         
         urlTextView.clipsToBounds = true
@@ -67,7 +70,16 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // populate ui image based on passed in url
-        if textField.text?.isEmpty == false {
+        if (self.artistImage.image != nil) {
+            let alertController = UIAlertController.init(title: "Image Populated", message: "Please removed your inserted image", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+            return true
+        }
+        else if textField.text?.isEmpty == false {
             let url = urlTextView.text
             
             if validateUrl(url: url!) {
@@ -83,6 +95,8 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
                         self.artistImage.roundedImage()
                         self.submitButton.isHidden = false
                         self.submitButton.layer.cornerRadius = 5
+                        self.removeButton.isHidden = false
+                        self.removeButton.layer.cornerRadius = 5
                         self.searchedUrl = url!
                         
                         UserDefaults.standard.set(url!, forKey: "searchedUrl")
@@ -121,6 +135,8 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
         // identify artist from image ...
         let group = DispatchGroup()
         group.enter()
+        
+        print(1)
 
         // Display HUD right before the request is made
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -185,6 +201,15 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
                 self.identifiedArtist = dataConcepts[0]["name"]! as? String
                 group.leave()
             }
+    }
+    
+    @IBAction func onRemove(_ sender: Any) {
+        self.artistImage.image = nil
+        self.artistImage.isHidden = true
+        self.submitButton.isHidden = true
+        self.removeButton.isHidden = true
+        self.searchedUrl = ""
+        UserDefaults.standard.set(nil, forKey: "searchedUrl")
     }
     
     @IBAction func unwindToArtists(_ unwindSegue: UIStoryboardSegue) {}

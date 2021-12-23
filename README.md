@@ -1,24 +1,20 @@
 # Songify
 
-## Demos
-### Demo 1
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/TLRgXFkfKq.gif">
+## Demo
+### Demo Part 1
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/k4U6iHoOeo.gif">
 
-### Demo 2
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/SvINCQAQ2Y.gif">
+### Demo Part 2
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/34VgYyVnG0.gif">
 
-### Demo 3
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/qUEAFWsMLi.gif">
+### Demo Part 3
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/19DRtz1Aze.gif">
 
-## Optionals
-## Opt. Demo 1 (adding new artist image + ML model utilization)
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/w0BNA9xh72.gif">
+### Demo Part 4
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/5DNviufEN3.gif">
 
-## Opt. Demo 2 (Search through albums + context menu + infinite scroll)
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/OSUKVUEqUQ.gif">
-
-## Opt. Demo 3 (Settings)
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/HHrDeUKwb2.gif">
+## Demo Part 5
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/gtAM8THN9u.gif">
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -96,20 +92,18 @@ User
 | Property | Type  | Description |
 | -------- | -------- | --------     
 | userID   | String   | Unique ID for the user
-| username | String | User's username to register/login |
-| password | String | User's password to register/login |
-| images | Array | Artist images that the user inputs in to get albums |
+| imageUrls | Array | array of image urls that the user inputs in |
 
-ArtistImage
+ImageUrl
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| image     | File     | image that user selects from list     |
+| imageUrl    | String     | image url that the user inputs in     |
 | author | Pointer to User | link to author who inputted the image | 
 
 ### Networking
 - Artist Image View Screen
     - (Read/GET) Query all of the user's saved artist images
-        - `let query = PFQuery(className="ArtistImage")`
+        - `let query = PFQuery(className="ImageUrl")`
         - `query.whereKey("author", equalTo: currentUser)`
         - `query.findObjectsInBackground { (artists: [PFObject]?, error: Error?) in
    if let error = error {
@@ -122,10 +116,8 @@ ArtistImage
     - (Create/POST) Create a new artist image for user
         - `let artist = PFObject(className="ArtistImage")`
         - `artist["author"]=currentUser`
-        - `let imageData=inputtedImage.image!.pngData()`
-        - `let file=PFFileObject(name: "image.png", data: imageData)`
-        - `artist[image] = file`
-        - `currentUser.add(artist, forKey="images")`
+        - `artist["imageUrl"] = inputted_url`
+        - `currentUser.add(artist, forKey="imageUrls")`
         - `currentUser.saveInBackground { (success, error) in
             if success {
                 print("comment saved")
@@ -135,10 +127,10 @@ ArtistImage
             }
         }`
     - (Delete) Delete existing image
-        - `let images = currentUser["images"] as! [PFObject]`
+        - `let images = currentUser["imageUrls"] as! [PFObject]`
         - `let image = images[idx]`
         - `do {`
-            - `currentUser.remove(image, forKey: "images")`
+            - `currentUser.remove(image, forKey: "imageUrls")`
             - `try image.delete()`
         - `catch {`
             - `print("error deleting image")`

@@ -42,9 +42,9 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
             self.searchedUrl = url
         }
         else {
-            self.artistImage.isHidden = true
-            self.submitButton.isHidden = true
-            self.removeButton.isHidden = true
+            self.artistImage.alpha = 0
+            self.submitButton.alpha = 0
+            self.removeButton.alpha = 0
         }
         
         urlTextView.clipsToBounds = true
@@ -91,11 +91,13 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
                     MBProgressHUD.hide(for: self.view, animated: true)
                     
                     if self.artistImage.image != nil {
-                        self.artistImage.isHidden = false
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.artistImage.alpha = 1
+                            self.submitButton.alpha = 1
+                            self.removeButton.alpha = 1
+                        }, completion: nil)
                         self.artistImage.roundedImage()
-                        self.submitButton.isHidden = false
                         self.submitButton.layer.cornerRadius = 5
-                        self.removeButton.isHidden = false
                         self.removeButton.layer.cornerRadius = 5
                         self.searchedUrl = url!
                         
@@ -202,10 +204,12 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onRemove(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.submitButton.alpha = 0
+            self.removeButton.alpha = 0
+            self.artistImage.alpha = 0
+        }, completion: nil)
         self.artistImage.image = nil
-        self.artistImage.isHidden = true
-        self.submitButton.isHidden = true
-        self.removeButton.isHidden = true
         self.searchedUrl = ""
         UserDefaults.standard.set(nil, forKey: "searchedUrl")
     }

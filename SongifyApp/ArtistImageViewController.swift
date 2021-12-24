@@ -134,40 +134,45 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onSubmit(_ sender: Any) {
-        // identify artist from image ...
-        let group = DispatchGroup()
-        group.enter()
+        if !SpotifyAPIData.shared.albums.isEmpty {
+            self.performSegue(withIdentifier: "toAlbumView", sender: self)
+        }
+        else {
+            // identify artist from image ...
+            let group = DispatchGroup()
+            group.enter()
 
-        // Display HUD right before the request is made
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        // facial recognition
-        identifyArtistByUrl(for: self.searchedUrl, group: group)
-
-        // Get artist info after identifying picture
-        
-        group.notify(queue: .main) {
-            let artist_name = self.identifiedArtist!
-            let artist_category = IDCategories.artist.rawValue
+            // Display HUD right before the request is made
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             
-            SpotifyAPICaller.client.search(query: artist_name, type: [artist_category]) { (res) in
-                    let artists = res["artists"] as! [String: Any]
-                    
-                    let items = artists["items"] as! [[String:Any]]
-                    
-                    let artistID = items.first!["id"]
+            // facial recognition
+            identifyArtistByUrl(for: self.searchedUrl, group: group)
+
+            // Get artist info after identifying picture
+            
+            group.notify(queue: .main) {
+                let artist_name = self.identifiedArtist!
+                let artist_category = IDCategories.artist.rawValue
                 
-                    self.artistID = artistID as? String
+                SpotifyAPICaller.client.search(query: artist_name, type: [artist_category]) { (res) in
+                        let artists = res["artists"] as! [String: Any]
+                        
+                        let items = artists["items"] as! [[String:Any]]
+                        
+                        let artistID = items.first!["id"]
                     
-                    self.performSegue(withIdentifier: "toAlbumView", sender: self)
-                    
-                    print("artist search successful")
-                    
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                } failure: { (error) in
-                    print(error)
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                }
+                        self.artistID = artistID as? String
+                        
+                        self.performSegue(withIdentifier: "toAlbumView", sender: self)
+                        
+                        print("artist search successful")
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                    } failure: { (error) in
+                        print(error)
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                    }
+            }
         }
     }
     
@@ -212,6 +217,7 @@ class ArtistImageViewController: UIViewController, UITextFieldDelegate {
         self.artistImage.image = nil
         self.searchedUrl = ""
         UserDefaults.standard.set(nil, forKey: "searchedUrl")
+        SpotifyAPIData.shared.albums.removeAll()
     }
     
     @IBAction func unwindToArtists(_ unwindSegue: UIStoryboardSegue) {}

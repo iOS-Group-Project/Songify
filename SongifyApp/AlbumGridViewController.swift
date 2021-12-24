@@ -16,7 +16,10 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
     
     let searchController = UISearchController(searchResultsController: nil)
     var artistID = String()
-    var albums = [[String:Any]]()
+    var albums: [[String:Any]] = {
+        let albums_data = SpotifyAPIData.shared.albums
+        return albums_data
+    }()
     var filteredAlbums = [[String:Any]]()
     var offset = Int()
     var favorites = [Int]()
@@ -39,7 +42,9 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // get albums from spotify api based on artist's uri
         
-        loadAlbums()
+        if albums.isEmpty {
+            loadAlbums()
+        }
         initSearchController()
     }
 
@@ -91,6 +96,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
             
             self.albums = finalResult
             self.filteredAlbums = finalResult
+            SpotifyAPIData.shared.albums = finalResult
             
             if self.albums.count == 0 {
                 self.albumView.backgroundView = self.emptyAlbums
@@ -156,6 +162,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate, UICol
                 for album in finalResult {
                     self.albums.append(album)
                     self.filteredAlbums.append(album)
+                    SpotifyAPIData.shared.albums.append(album)
                 }
                 
                 self.albumView.reloadData()

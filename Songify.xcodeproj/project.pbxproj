@@ -18,6 +18,7 @@
 		404AB54E2739F651005544F8 /* SongifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54D2739F651005544F8 /* SongifyUITests.swift */; };
 		404AB5502739F651005544F8 /* SongifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */; };
 		407C28602759A94700F6F1D9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C285F2759A94700F6F1D9 /* SettingsViewController.swift */; };
+		4086EFCF2775766F0041BEC2 /* SpotifyAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086EFCE2775766E0041BEC2 /* SpotifyAPIData.swift */; };
 		409F046127480D3100ADDD55 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F046027480D3100ADDD55 /* AlbumViewCell.swift */; };
 		409F04632748110800ADDD55 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F04622748110800ADDD55 /* AlbumGridViewController.swift */; };
 		40E46C0327741065006D7246 /* SpotifyAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E46C0227741065006D7246 /* SpotifyAPICaller.swift */; };
@@ -67,6 +68,7 @@
 		404AB54D2739F651005544F8 /* SongifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITests.swift; sourceTree = "<group>"; };
 		404AB54F2739F651005544F8 /* SongifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		407C285F2759A94700F6F1D9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = SongifyApp/SettingsViewController.swift; sourceTree = "<group>"; };
+		4086EFCE2775766E0041BEC2 /* SpotifyAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIData.swift; sourceTree = "<group>"; };
 		409F046027480D3100ADDD55 /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewCell.swift; path = SongifyApp/AlbumViewCell.swift; sourceTree = "<group>"; };
 		409F04622748110800ADDD55 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumGridViewController.swift; path = SongifyApp/AlbumGridViewController.swift; sourceTree = "<group>"; };
 		40E46C0227741065006D7246 /* SpotifyAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotifyAPICaller.swift; path = SongifyApp/SpotifyAPICaller.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				4027F44A27711988000667F5 /* Constants.swift */,
 				40E46C0227741065006D7246 /* SpotifyAPICaller.swift */,
 				40E46C062774D0F4006D7246 /* APIConfig.swift */,
+				4086EFCE2775766E0041BEC2 /* SpotifyAPIData.swift */,
 			);
 			name = Songify;
 			sourceTree = SOURCE_ROOT;
@@ -451,6 +454,7 @@
 				40E46C072774D0F4006D7246 /* APIConfig.swift in Sources */,
 				40E46C0327741065006D7246 /* SpotifyAPICaller.swift in Sources */,
 				404AB52D2739F64F005544F8 /* AppDelegate.swift in Sources */,
+				4086EFCF2775766F0041BEC2 /* SpotifyAPIData.swift in Sources */,
 				404AB52F2739F64F005544F8 /* SceneDelegate.swift in Sources */,
 				4027F44B27711988000667F5 /* Constants.swift in Sources */,
 			);

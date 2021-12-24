@@ -2,10 +2,7 @@
 
 ## Demo
 ### Demo Part 1
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/k4U6iHoOeo.gif">
-
-### Demo Part 2
-<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/34VgYyVnG0.gif">
+<img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/qGWmhNeNWm.gif">
 
 ### Demo Part 3
 <img width="400" alt="Screen Shot 2021-10-29 at 1 47 14 PM" src="http://g.recordit.co/19DRtz1Aze.gif">
